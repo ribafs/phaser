@@ -1,0 +1,19 @@
+Add Phaser intellisense in VS Code
+
+Phaser is open source JavaScript based game development framework for HTML-5 game development. VS code is also open source and commonly used IDE for web development. but there no Extension available for intellisense Phaser in Vs code.
+
+This can be done in 3 steps .
+
+    First Download the definition (https://github.com/photonstorm/phaser/blob/master/types/phaser.d.ts) from phaser’s git-hub page.
+    Create a jsconfig.json file at (raiz do jogo) your root/ base directory like below
+
+3. Create a folder named “defs” in you root/base directory and add that def file phaser.d.ts in this folder.
+
+That's it now type some code, it should auto-complete the Phaser API
+Bonus
+
+you can add additional def files for matter, canvas, webgl in your def folder for additional benifits.
+
+all defs can be downloaded from here (https://github.com/photonstorm/phaser/tree/master/types).
+
+https://medium.com/@psychamit/add-phaser-intellisense-in-vs-code-836a0e1d74e9

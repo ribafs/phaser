@@ -1,0 +1,55 @@
+Membros estáticos
+
+O ES6 inclui membros estáticos, assim como o TypeScript. Os membros estáticos de uma classe são acessados usando o nome da classe e a notação de ponto, sem criar um objeto, por exemplo,
+
+NomeClasse.MembroEstatico
+
+Membros estáticos podem ser definidos usando a palavra chave static
+
+Em typescript não podemos criar uma classe estática, pois isso não é necessário, mas podemos ter métodos e propriedades estáticos na classe.
+
+Uma classe pode conter membros estáticos e não estáticos.
+
+Veja que  é possível
+
+class Circle {
+    static pi = 3.14;
+    pi = 3;
+}
+
+  Circle.pi; // returns 3.14
+
+let circleObj = new Circle();
+circleObj.pi; // returns 3
+
+
+Em typescript nem a classe nem seu construtor podem ser estáticos.
+
+Não podemos usar palavras chaves reservadas em métodos ou propriedades
+Ex: name, lemgth ou call
+
+Podemos usar os modificadores de acesso com membros estáticos:
+public
+private
+protected
+
+O public é o default. Caso nenhum seja usado, ele será public
+
+Métodos duplicados
+
+  class Person {
+
+    static walk() {
+      document.write("Walking first...");
+    }
+
+    static walk() {
+      document.write("Walking last...");
+    }
+  }
+
+  Person.walk();
+
+Em Javscript isso é permitido e mostrará o valor do segundo método, mas em Typescript isso não é permitido.
+
+

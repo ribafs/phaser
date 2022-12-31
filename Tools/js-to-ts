@@ -1,0 +1,20 @@
+js-to-ts-converter
+
+Small utility that I wrote to script converting a JS codebase to TypeScript, while trying to solve some of the common TypeScript errors that will be received upon such a conversion.
+
+The utility performs the following transformations:
+
+    Renames .js files to .ts
+    Adds property declarations to ES6 classes so that they are compilable by the TypeScript compiler (see below).
+    Any function calls that provide fewer arguments than the declared parameters in the function will cause the remaining parameters to be marked as optional for that function. This solves TS errors like "Expected 3 arguments, but got 2"
+
+sudo npm install --global js-to-ts-converter
+
+Acessar a pasta onde estão os arquivos em js, faça uma cópia dos arquivos .js para uma pasta de destino, onde serão renomeados e convertidos para TS
+
+mkdir pastadestino
+
+Executar
+js-to-ts-converter pastadestino, que contém cópia dos .js
+
+

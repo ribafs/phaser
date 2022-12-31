@@ -1,0 +1,53 @@
+Importa do Github
+
+Blank
+HTML, CSS e jS
+Typescript
+CoffeScript
+Electron
+3D Rendering with Three
+PHP Web Server
+PHP CLI
+PHP PDO SQLite
+Phyton
+C++
+Node
+Deno
+C
+Java
+JavaFX
+C#
+React JS
+React Typescript
+Reack Bootstrap
+NestJS
+VueJS
+VueJS 3 Vite
+Angular
+Ruby
+Rails
+Go
+Swift
+Lua
+SQLite
+Rust
+QBasic
+BASIC
+R
+Dart
+Kotlin
+Mono
+Visual Basic
+PhaserJS
+Love2D
+Django
+Pascal
+Tcl
+Laravel 9
+COBOL
+Fortran
+Hugo
+PixiJS
+XML
+YAML
+JSON
