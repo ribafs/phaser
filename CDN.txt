@@ -1,0 +1,16 @@
+npm
+
+Download this version from npm. Need a beginners guide to npm? Read this tutorial.
+
+npm install phaser@3.55.2
+
+CDN
+
+Phaser is on the jsDelivr CDN. Include one of the following in your html:
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
+
+https://cdnjs.com/libraries/phaser
