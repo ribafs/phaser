@@ -1,0 +1,4 @@
+scoreUpdate(){
+    return 'Pontos: '+this.points++; 
+}
+

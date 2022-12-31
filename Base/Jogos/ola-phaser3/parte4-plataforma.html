@@ -1,0 +1,72 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Esqueleto de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        width: 600,
+        height: 550,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 300 },
+                debug: false
+            }
+        },
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    let player;
+    let platforms;
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Funções básicas do jogo
+    function preload ()
+    {
+        this.load.image('bg', 'assets/sky.png');
+        this.load.spritesheet('player', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.image('ground', 'assets/platform.png');
+    }
+
+    function create ()
+    {
+        this.add.image(300, 250, 'bg');
+
+        platforms = this.physics.add.staticGroup();
+        platforms.create(200, 575, 'ground').setScale(2).refreshBody();
+
+        player = this.physics.add.image(100, 0, 'player');
+        player.setBounce(0.2);
+        player.setCollideWorldBounds(true);
+    }
+
+    function update ()
+    {
+    }
+
+</script>
+
+</body>
+</html>

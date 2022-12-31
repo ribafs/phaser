@@ -1,0 +1,89 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// Algumas funcionalidades: sprite, animação, física, colisão, movimento para a direita
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 300 },
+                debug: false
+            }
+        },
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        },
+        width: 800,
+        height: 600,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Carregar os assets para a memória
+    function preload ()
+    {
+        this.load.image('plataforma', 'assets/images/platform.png');
+        this.load.spritesheet('player', 'assets/sprites/player.png', { frameWidth: 32, frameHeight: 48 });
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+        platforms = this.physics.add.staticGroup();
+        platforms.create(400, 568, 'plataforma').setScale(2).refreshBody();
+
+        player = this.physics.add.sprite(100, 450, 'player');
+        this.physics.add.collider(player, platforms);
+
+        this.anims.create({ // Cada animação geralmente usa um sprite
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('player', { start: 5, end: 8 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        cursors = this.input.keyboard.createCursorKeys();
+    }
+
+    // Atualizar os objetos a cada frame
+    function update ()
+    {
+        if (cursors.right.isDown){
+            player.setVelocityX(160);
+            player.anims.play('right', true);
+        } else {// Parar quando soltar a tecla 
+            player.setVelocityX(0); // VelocidadeX = 0
+            player.anims.play('turn'); // Animação parado
+        }
+    }
+
+</script>
+
+</body>
+</html>

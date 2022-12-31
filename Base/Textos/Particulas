@@ -1,0 +1,9 @@
+Phaser.GameObjects.Particles. Partícula
+
+Uma Partícula é um Objeto de Jogo simples controlado por um Emissor e Gerente de Partículas, e renderizado pelo Gerente. Ele usa seu próprio sistema de física leve e pode interagir apenas com os limites e zonas de seu Emissor.
+
+https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Particles.Particle.html
+
+https://phaser-particle-editor.firebaseapp.com/
+
+

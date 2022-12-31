@@ -1,0 +1,60 @@
+A física do Phaser
+
+O Physics Manager é responsável por cuidar de todos os sistemas de física em execução. Phaser suporta 4 sistemas de física: Arcade Physics, P2, Ninja Physics e Box2D através de um plugin comercial.
+
+Objetos de jogo (como Sprites) só podem pertencer a um único sistema de física, mas você pode ter vários sistemas ativos em um único jogo.
+
+Por exemplo, você poderia ter P2 gerenciando uma paisagem de terreno construída em polígonos sobre a qual um veículo passa, enquanto poderia disparar balas que usam o mais rápido (por ser muito mais simples) Arcade Physics system.
+
+Os objetos podem ser estátidos e dinâmicos quanto à física.
+
+Estáticos - aqueles que ficam fixos e não sofrem alteração em sua posiçãoi. Indicados para plataformas.
+
+Dinâmicos - sofrem influência da gravidade, portanto caem, da aceleração, etc. Eles podem se movimentar e quando parados podem entrar em movimento. Indicado para jogadores, inimigos e outros objetos.
+
+Imagem
+
+Objeto e métodos
+
+Luz
+
+Textura e background
+
+
+IMPORTANTE
+
+Sempre que criamos um objeto e aplicamos a ele a física estática, após qualquer alteração no objeto precisamos atualizar o jogo com a propriedade .refreshBody()
+
+Exemplo
+
+    this.platform = this.physics.add.staticImage(0, 500, 'platform')
+
+Caso adicionemos a propriedade setScale()
+
+    this.platform = this.physics.add.staticImage(0, 500, 'platform').setScale(2,1)
+
+Precisaremos executar
+    this.platform = this.physics.add.staticImage(0, 500, 'platform').setScale(2,1).refreshBody()
+
+Phaser.Physics.Arcade. ArcadePhysics 
+
+https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Arcade.ArcadePhysics.html
+
+
+Arcade
+
+A física de arcade por si só é um sistema de física simplificado projetado para executar tarefas comuns com configuração mínima. É importante entender que ele é limitado por uma API simples que omite alguns dos fatores mais complexos e não lida diretamente com a aplicação de forças ou fricção adequada.
+
+No entanto, permite definir a aceleração - que é proporcional à força. Se negligenciarmos a massa do objeto, a aceleração seria equivalente à força. Observe que estamos falando principalmente de aceleração constante, em oposição à força ao longo do tempo.
+
+A fricção no Arcade só funciona quando o corpo tem aceleração zero (sem forças aplicadas), por isso não é muito útil.
+
+Outra limitação que vale a pena mencionar tem a ver com as colisões: o Arcade só pode lidar com corpos retangulares com AABB (caixa delimitadora do eixo alinhado), o que significa que a caixa de colisão não pode girar com o corpo. Felizmente, isso não representa nenhum problema em nosso caso.
+
+https://www.codementor.io/@amoslaber/build-a-paper-plane-with-phaser-3-and-arcade-physics-s8so8u831
+
+https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial
+
+https://flaviocopes.com/phaser-physics/
+
+

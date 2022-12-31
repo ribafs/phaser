@@ -1,0 +1,41 @@
+Any GameObject can be made interactive.
+
+To do so, we must call the setInteractive() method on it:
+
+text = this.add.text(100, 100, 'test')
+text.setInteractive()
+
+Once a GameObject is interactive, it can listen for events.
+
+This is done using the on() method. We pass an event name, and a callback function that’s executed when the event occurs:
+
+text.on('pointerup', function () {})
+
+pointerup is just one of the mouse events we can listen for. We also have:
+
+    pointerdown
+    pointerdownoutside
+    pointerup
+    pointerupoutside
+    pointermove
+    pointerover
+    pointerout
+    wheel
+
+This is just the beginning. We have many advanced mouse (and touch events) controls at our disposal.
+
+gameobjectdown is a more general event that is fired when any interactive element is clicked, and it’s not fired on an object, but on this.input:
+
+this.input.on('gameobjectdown', () => {})
+
+https://flaviocopes.com/phaser-mouse-input/
+
+this.button = this.add.sprite(xy.x, xy.y - 96, 'start').setInteractive();
+this.button.on('pointerover', function(){this.button.setTint(0xf0ff00);}, this)
+this.button.on('pointerout', function(){this.button.setTint(0xffffff);}, this)
+this.button.on('pointerdown', function(){
+  //do things on click
+});
+
+// This line calls the function associated with the button's 'pointerdown' event
+this.button.emit('pointerdown');

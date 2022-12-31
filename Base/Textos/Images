@@ -1,0 +1,124 @@
+Image
+Introduction¶
+
+Display of static images, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage¶
+Load texture¶
+
+scene.load.image(key, url);
+
+Reference: load image
+Add image object¶
+
+var image = scene.add.image(x, y, key);
+// var image = scene.add.image(x, y, key, frame);
+
+Add image from JSON
+
+var image = scene.make.image({
+    x: 0,
+    y: 0,
+    key: '',
+    // frame: '',
+
+    // angle: 0,
+    // alpha: 1
+    // flipX: true,
+    // flipY: true,
+    // scale : {
+    //    x: 1,
+    //    y: 1
+    //},
+    // origin: {x: 0.5, y: 0.5},
+
+    add: true
+});
+
+    key :
+        A string
+        An array of string to pick one element at random
+    x, y, scale.x, scale.y :
+        A number
+        A callback to get return value
+
+function() { return 0; }
+
+Random integer between min and max
+
+{ randInt: [min, max] }
+
+Random float between min and max
+
+        { randFloat: [min, max] }
+
+Custom class¶
+
+    Define class
+
+class MyImage extends Phaser.GameObjects.Image {
+    constructor(scene, x, y, texture, frame) {
+        super(scene, x, y, texture, frame);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var image = new MyImage(scene, x, y, key);
+
+Texture¶
+
+See game object - texture
+Other properties¶
+
+See game object
+Create mask¶
+
+var mask = image.createBitmapMask();
+
+
+-------
+You can add images as GameObjects, but you need to be aware that to display images when the game starts, in create(), they need to be preloaded in preload(). We assign them an identifier, and then we can add an image with that asset in the create() function:
+
+function preload() {
+  this.load.image('apple', 'apple.png')
+}
+
+function create() {
+  this.add.image(200, 200, 'apple')
+}
+
+Note that 200, 200 is the position we’re going to put the image.
+
+It refers to the center of the image.
+
+To make it refer to the top left position, which is easier to reason about, you can call the setOrigin() method on the image:
+
+const image = this.add.image(200, 200, 'apple')
+image.setOrigin(0, 0)
+
+Once an image has been created and added, we can perform several operations on it, including scaling it:
+
+image.setScale(2)
+
+flipping it:
+
+image.flipY = true
+image.flipX = true
+
+and more.
+
+https://flaviocopes.com/phaser-images/
+
+

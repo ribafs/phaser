@@ -1,0 +1,10 @@
+There are two ways you can use addKeys() 46:
+
+var keys = this.input.keyboard.addKeys("W,A,S,D");
+// -> { W: Key, A: Key, S: Key, D: Key }
+
+var keys = this.input.keyboard.addKeys({ up: 'W', left: 'A', down: 'S', right: 'D' });
+// -> { up: Key, left: Key, down: Key, right: Key }
+
+
+

@@ -1,0 +1,3 @@
+function imagePreload(alias,imagePath){
+    this.load.image(alias, imagePath);
+}

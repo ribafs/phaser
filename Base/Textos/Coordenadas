@@ -1,0 +1,41 @@
+Coordenadas
+
+Em jogos a origem das coordenadas fica acima e à esquerda
+
+(0, 0)
+-------------------------------------------------> X
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|                       (400,30) (X,Y) Em geral as ferramentas trabalham com pixels como unidade
+|
+|
+|
+|
+|
+|
+|
+|
+|
+Y
+
+Veja online mova o mouse e observe
+
+https://phaser.io/examples/v3/view/input/camera/world-coordinates
+
+ Phaser.Geom. Point
+
+Defines a Point in 2D space, with an x and y component.
+new Point( [x] [, y])
+
+https://photonstorm.github.io/phaser3-docs/Phaser.Geom.Point.html
+
+Observe que o ponto (400,300) representa (x,y), ou seja, o 400 é o valor horizontal e o 300 é o vertical

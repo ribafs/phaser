@@ -1,0 +1,62 @@
+Para testar os jogos do Phaser 3 temos algumas alternativas
+
+- Servidor web com Apache ou Nginx
+- Servidor web com Phyton
+- Servidor web com NodeJS
+- Outros
+
+Como também trabalho com PHP estarei testando geralmente com Apache
+
+
+Servidor web
+
+Para o desenvolvimento de jogos com Phaser precisamos de um servidor web
+
+e abrir os jogos criados na pasta web do servidor como sites (http://) e não como arquivos (file://)
+
+
+Editor de código
+
+Uma boa alternativa é o VSCode
+
+
+Praticamente todos os jogos criados com o Phaser3 somente irão funcionar corretamente quando executados como site sob um servidor web.
+
+Se você simplesmente abrir um arquivo index.html que contém um jogo e ele mostrar apenas o canvas e mais nada então Tecle F12 e veja as mensagens no console
+
+Requisição cross-origin bloqueada: A diretiva Same Origin (mesma origem) não permite a leitura do recurso remoto em file:///backup/transp/0GamesCreator/Phaser/1Meus/ola-phaser3/assets/bg.png (motivo: requisição CORS não é http).
+
+Se aparecer uma mensagem como a mostrada acima isso indica que precisa rodar o jogo sob um servidor web (http) e não simplesmente como arquivo.
+
+
+Servidor web com phyton3
+
+Acessar a pasta do projeto
+
+python3 -m http.server
+
+http://localhost:8000
+
+
+Servidor web com NodeJS
+
+sudo npm install -g http-server
+
+Acessar a pasta do projeto
+
+http-server
+
+http://127.0.0.1:8080
+Hit CTRL-C to stop the server
+
+
+Servidor web apenas com o PHP (sem apache ou nginx)
+
+Acessar a pasta e executar
+
+php -S localhost:8000
+
+http://localhost:8000
+
+
+I've found the solution. the best way for this is to make the game without any nodejs server providers like Webpack or Parcel! Just finish your job with codes and then run the whole project with Apache or other webservers!

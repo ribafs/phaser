@@ -1,0 +1,55 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Funções básicas do jogo
+
+    // Carregar os assets para a memória
+    function preload ()
+    {
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+    }
+
+    // Atualizar os objetos a cada frame
+    function update ()
+    {
+    }
+
+</script>
+
+</body>
+</html>

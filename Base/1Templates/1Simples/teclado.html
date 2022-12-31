@@ -1,0 +1,112 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        },
+        width: 1024,
+        height: 768,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Funções básicas do jogo
+
+    // Carregar os assets para a memória
+    function preload ()
+    {
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+        alert('Pressione para teste: setas, espaço, 0, 1, etc')
+
+        this.left = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        this.right = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        this.up = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        this.down = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.zero = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ZERO);
+        this.one = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);
+        this.nine = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.NINE);
+
+        this.keyW = this.input.keyboard.addKey('W');  
+    }
+
+    // Atualizar os objetos a cada frame
+    function update ()
+    {
+        this.isDown = this.keyW.isDown;// Esta linha precisa estar no update e não no create()
+        if(this.isDown) console.log('W pressionado')
+
+        if (Phaser.Input.Keyboard.JustDown(this.left)) {
+            console.log('ESQUERDA')
+        }else if (Phaser.Input.Keyboard.JustDown(this.right)) {
+            console.log('DIREITA')
+        }else if (Phaser.Input.Keyboard.JustDown(this.up)) {
+            console.log('CIMA')
+        }else if (Phaser.Input.Keyboard.JustDown(this.down)) {
+            console.log('BAIXO')
+        }else if (Phaser.Input.Keyboard.JustDown(this.space)) {
+            console.log('ESPAÇO')
+        }else if (Phaser.Input.Keyboard.JustDown(this.zero)) {
+            console.log('0 - Zero')
+        }else if (Phaser.Input.Keyboard.JustDown(this.one)) {
+            console.log('1 - um')
+        }else if (Phaser.Input.Keyboard.JustDown(this.nine)) {
+            console.log('9 - nove')
+        }
+    }
+/*
+    A ~ Z
+    ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE (Ao invés de 0 a 9)
+    F1 ~ F12
+    BACKSPACE
+    TAB
+    ENTER
+    SHIFT
+    CTRL. ALT
+    PAUSE
+    CAPS_LOCK
+    ESC
+    SPACE
+    PAGE_UP, PAGE_DOWN
+    END, HOME
+    LEFT, UP, RIGHT,DOWN
+    PRINT_SCREEN
+    INSERT, DELETE
+    NUMPAD_ZERO, NUMPAD_ONE, NUMPAD_TWO, NUMPAD_THREE, NUMPAD_FOUR, NUMPAD_FIVE, NUMPAD_SIX, NUMPAD_SEVEN, NUMPAD_EIGHT, NUMPAD_NINE, NUMPAD_ADD, NUMPAD_SUBTRACT
+    OPEN_BRACKET, CLOSED_BRACKET
+    SEMICOLON_FIREFOX, COLON, COMMA_FIREFOX_WINDOWS, COMMA_FIREFOX, BRACKET_RIGHT_FIREFOX, BRACKET_LEFT_FIREFOX
+*/
+</script>
+
+</body>
+</html>

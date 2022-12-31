@@ -1,0 +1,54 @@
+Funções a serem chamadas na função create()
+
+function imageCreate(x,y,alias){
+    this.add.image(x,y,alias)
+}
+
+function playSoundCreate(alias, v, l){ // 'coin', 0.5, true
+	this.alias.play({
+		volume: v,
+		loop: l
+	})
+}
+
+function musicCreate(alias){
+    this.result = this.sound.add(alias)
+    return this.result
+}
+
+function textCreate(x,y,texto,size){ // Ex: 100,200, 'Texto aqui', {fontSize: '32px'}
+    this.add.text(x, y, texto, {fontSize: size})
+}
+
+// Mover personagem com uma tecla (key) animando-o
+function animationCreate(key, alias, s, e, fr, r){ // key
+	this.anims.create({
+		key: key,
+		frames: this.anims.generateFrameNumbers(alias, {
+			start: s,
+			end: e
+		}),
+		frameRate: fr,
+		repeat: r
+	})
+}
+
+/*
+		this.anims.create({
+			key: 'walk',
+			frames: this.anims.generateFrameNumbers('player', {
+				start: 0,
+				end: 3
+			}),
+			frameRate: 8,
+			repeat: -1
+		})
+*/
+
+function keyboardCreate(keyPressed){ // 
+	this.input.keyboard.addKey(keyPressed)
+		.on('down',()=>{
+			//console.log(keyPressed+' pressionado')
+            // Ação disparada pelo pressionamento da tecla
+		})
+}

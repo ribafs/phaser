@@ -1,0 +1,73 @@
+Full screen
+Introduction¶
+
+Enable or disable full screen mode, built-in method of phaser.
+
+    Author: Richard Davey
+
+Usage¶
+Enable/disable¶
+
+Under any input event (touch or keyboard)
+
+gameObject.setInteractive().on('pointerdown', function() {
+    if (scene.scale.isFullscreen) {
+        scene.scale.stopFullscreen();
+        // On stop fulll screen
+    } else {
+        scene.scale.startFullscreen();
+        // On start fulll screen
+    }
+});
+
+Fire one of these events
+
+    'fullscreenunsupported' : Tried to enter fullscreen mode, but it is unsupported by the browser.
+    'enterfullscreen' : Entered fullscreen mode successfully.
+    'fullscreenfailed' : Tried to enter fullscreen mode but failed.
+
+Toggle¶
+
+Under any input event (touch or keyboard)
+
+gameObject.setInteractive().on('pointerdown', function() {
+    scene.scale.toggleFullscreen();
+    if (scene.scale.isFullscreen) {
+        // On start fulll screen
+    } else {
+        // On stop fulll screen
+    }
+});
+
+    Fire 'fullscreenunsupported' or 'enterfullscreen' event.
+
+State¶
+
+    Is in full screen mode
+
+var isFullScreen = scene.scale.isFullscreen;
+
+Support full screen
+
+    var supported = Phaser.Device.Fullscreen.available;
+
+Events¶
+
+    Full screen mode unsupported
+
+scene.scale.on('fullscreenunsupported', function() {});
+
+Enter full screen mode
+
+    scene.scale.on('enterfullscreen', function() {});
+
+With DOM game object¶
+
+Set gameConfig.fullscreenTarget to parent id.
+
+var config = {
+    parent: parentDivID,
+    fullscreenTarget: parentDivID
+};
+
+var game = new Phaser.Game(config);

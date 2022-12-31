@@ -1,0 +1,53 @@
+Evitando vários avisos de AudioContext
+
+create()
+{
+        this.music =  this.sound.add('music', {
+                volume: 0.2,
+                loop: true
+        })
+
+        if (!this.sound.locked)
+        {
+                // already unlocked so play
+                this.music.play()
+        }
+        else
+        {
+                // wait for 'unlocked' to fire and then play
+                this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+                        this.music.play()
+                })
+        }
+}
+
+
+Pausar quando perder o foco
+
+create()
+{
+        // previous code...
+
+        this.game.events.on(Phaser.Core.Events.BLUR, () => {
+                this.handleLoseFocus()
+        })
+
+        document.addEventListener('visibilitychange', () => {
+                if (!document.hidden)
+                {
+                        return
+                }
+
+                this.handleLoseFocus()
+        })
+
+        // NOTE: event listener clean-up is omitted
+}
+
+handleLoseFocus()
+{
+        // TODO
+}
+
+https://blog.ourcade.co/posts/2020/phaser-3-web-audio-best-practices-games/
+

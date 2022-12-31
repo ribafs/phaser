@@ -1,0 +1,54 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        scene: {
+            preload: preload,
+            create: create
+        },
+        width: 800,
+        height: 600,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Carregar os assets para a memória
+    function preload()
+    {
+        this.load.image('enemy', 'assets/images/enemy.png')
+        // Cria uma variável 'sky' para referenciar a imagem sky.png
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+        this.add.image(100,50, 'enemy').setOrigin(0); // setScale(2).
+        // .setScale(2).setOrigin(0); ajustam a imagem para encher a tela/cena
+    }
+</script>
+
+</body>
+</html>

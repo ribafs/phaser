@@ -1,0 +1,45 @@
+Verificando colisão
+
+Usando a física de Phaser, você pode acionar uma função quando dois objetos (ou grupos de objetos) entram em contato:
+
+this.physics.arcade.overlap(player, enemy, playerDies);
+
+
+ Phaser: collisions and screen boundaries
+
+Published in 2021
+
+You can detect a collision between physics-enabled items.
+
+Phaser offers us 2 handy methods, to start with.
+
+We have collider and overlap. Both let us detect when objects get one near the other, but with a difference: collider automatically makes object bounce when they meet. overlap lets objects overlap with each other.
+
+This is how we add a collider:
+
+const collisionHappened = (dog, cat) => {
+  projectile.destroy()
+}
+
+this.physics.add.collider(dogs, cats, collisionHappened, null, this)
+
+and this is how we add an overlap:
+
+const overlapHappened = (dog, cat) => {
+  projectile.destroy()
+}
+
+this.physics.add.overlap(dogs, cats, collisionHappened, null, this)
+
+You can also set screen boundaries so physics objects will not disappear when they reach the end of the screen.
+
+Call the setCollideWorldBounds() on the object, and pass it the true value:
+
+const dog = this.physics.add.sprite(20, 20, 'dog')
+dog.setCollideWorldBounds(true)
+
+If you also want it to bounce when it reaches the screen limit, call
+
+dog.setBounce(1)
+
+The number you pass will determine how fast it will bounce back. Try setting 0.5 or 1.5 and you’ll see it bouncing with less or more energy.

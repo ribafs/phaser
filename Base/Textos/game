@@ -1,0 +1,7 @@
+game
+
+Uma instância da classe Phaser que contém propriedades relacionadas a jogabilidade, incluindo largura e altura da janela, e configurações de renderização gráfica.
+
+let game = new Phaser.Game(640, 960, Phaser.AUTO);
+
+

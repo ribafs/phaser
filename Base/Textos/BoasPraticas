@@ -1,0 +1,108 @@
+Boas práticas na criação de jogos com o Fraework Phaser
+
+Os jogos podem ser alguns dos tipos de software mais complicados/complexos que você pode criar. E os mais divertidos. Isso estimula a usar as melhores práticas modernas para evitar erros confusos ou corrigir mais facilmente os que surgem. Fazer isso economiza tempo e dores de cabeça. Mais importante ainda, ajudará você a fazer um jogo melhor.
+
+Citado em inglês no tutorial
+https://blog.ourcade.co/posts/2020/make-first-phaser-3-game-modern-javascript-part1/
+
+- Separar em arquivos diferentes HTML, CSS e Javascript, como também os assets
+
+- Usar classes
+
+- Chamar a instância do jogo de game em Phaser.Game
+
+- Usar escala para o canvas em preload()
+
+- Usar nomes iguais as imagens na função preload() para facilitar lembrar
+
+- Criar componentes que encapsulem várias funcionalidades. As classes podem ajudar neste aspecto, podendo ser reutilizadas.
+
+
+Estrutura de pastas:
+
+/assets
+    audio
+    images
+    sprites
+/src
+index.html (phaser via CDN)
+README.md
+
+O README.md deve ter boas informações e ser o cartão de visitas do jogo:
+
+- Descrição resumida e clara sobre o jogo
+- Requisitos mínimos para o jogo rodar localmente ou num servidor
+- Vesão do Phaser usada no jogo
+- Assets usados no jogo
+- URL do projeto
+- Cenas usadas no jogo
+- Uma ou mais capturas do jogo
+- Demo do jogo (site)
+- Controles para usar o jogo
+- Detalhes extras
+
+No Javascript moderno se usa import e export. Veja abaixo uma estrutura similar a que usa o React
+
+import Phaser from 'phaser'
+
+export default class GameScene extends Phaser.Scene
+{
+        constructor()
+        {
+                super('GameScene')
+        }
+
+        preload()
+        {
+
+        }
+
+        create()
+        {
+                
+        }
+}
+
+Lembrando que GameScene em super('GameScene') é a unique key do cosntrutor.
+
+O princípio DRY nos orienta para evitar repetições no código.
+
+Quanto às variáveis, aliases e strings que se repetem podemos tirar vantagens da criação de constantes para usar no seu lugar.
+
+Um exemplo é de plataformas, que usamos várias com o mesmo nome no código.
+
+Então criar uma constante vai ajudar a evitar erros e também que o editor de código/IDE autocomplete seu nome, visto que ele não o faz com strings.
+
+const GROUND_KEY = 'ground'
+
+Ao trabalhar com classes é iomportante a criação de métodos complementares, ao invés de criar trechos de código usando ifs.
+
+Exemplo para o método createPlatforms() abaixo:
+
+export default class GameScene extends Phaser.Scene
+{
+        //...
+
+        create()
+        {
+                this.add.image(400, 300, 'sky')
+                // this.add.image(400, 300, 'star')
+                
+                this.createPlatforms()
+        }
+
+        createPlatforms()
+        {
+                const platforms = this.physics.add.staticGroup()
+
+                platforms.create(400, 568, 'ground').setScale(2).refreshBody()
+        
+                platforms.create(600, 400, 'ground')
+                platforms.create(50, 250, 'ground')
+                platforms.create(750, 220, 'ground')
+        }
+...
+
+- Criar funções/métodos auxiliares para tornar menores e mais legíveis as funções principais create e update
+- Organizar, comentar e adicionar espaços entre trechos de código para torná-lo mais fácil de ler
+

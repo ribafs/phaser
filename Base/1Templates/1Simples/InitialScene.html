@@ -1,0 +1,59 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        scene: {
+            preload: preload,
+            create: create
+        },
+        width: 1024,
+        height: 768,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+    };
+
+    let game = new Phaser.Game(config);
+
+    function preload ()
+    {
+        this.load.image('initial', 'assets/images/initial.png')
+    }
+
+    function create ()
+    {
+		this.add.image(0,0,'initial').setOrigin(0)
+		
+		setTimeout(()=>{
+			this.add.text(game.config.width/2,game.config.height/2 + 50,'Tecle ENTER',{fontSize:'32px'})
+				.setOrigin(.5)
+				
+			this.input.keyboard.addKey('enter')
+				.on('down',()=>{
+					this.scene.start('Scene01')
+				})
+		},1000)
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+function createPreviewBounds(x, y, w, h) {
+
+    var sim = game.physics.p2;
+
+    //  If you want to use your own collision group then set it here and un-comment the lines below
+    var mask = sim.boundsCollisionGroup.mask;
+
+    customBounds.left = new p2.Body({ mass: 0, position: [ sim.pxmi(x), sim.pxmi(y) ], angle: 1.5707963267948966 });
+    customBounds.left.addShape(new p2.Plane());
+    // customBounds.left.shapes[0].collisionGroup = mask;
+
+    customBounds.right = new p2.Body({ mass: 0, position: [ sim.pxmi(x + w), sim.pxmi(y) ], angle: -1.5707963267948966 });
+    customBounds.right.addShape(new p2.Plane());
+    // customBounds.right.shapes[0].collisionGroup = mask;
+
+    customBounds.top = new p2.Body({ mass: 0, position: [ sim.pxmi(x), sim.pxmi(y) ], angle: -3.141592653589793 });
+    customBounds.top.addShape(new p2.Plane());
+    // customBounds.top.shapes[0].collisionGroup = mask;
+
+    customBounds.bottom = new p2.Body({ mass: 0, position: [ sim.pxmi(x), sim.pxmi(y + h) ] });
+    customBounds.bottom.addShape(new p2.Plane());
+    // customBounds.bottom.shapes[0].collisionGroup = mask;
+
+    sim.world.addBody(customBounds.left);
+    sim.world.addBody(customBounds.right);
+    sim.world.addBody(customBounds.top);
+    sim.world.addBody(customBounds.bottom);
+
+}
+
+import Phaser from 'phaser'
+
+export default class Slime extends Phaser.GameObjects.Sprite
+{
+	constructor(scene, x, y)
+	{
+		super(scene, x, y, 'slime')
+	}
+
+	changeColor()
+	{
+		this.tint = 0xffee0d
+	}
+
+	// ... other methods and actions
+}
+
+// at the top of the Scene file
+import Slime from './Slime'
+
+// then in the Scene class
+create()
+{
+	const slime = new Slime(this, 400, 300)
+	this.add.existing(slime)
+}
+
+// at the bottom of the Slime.js file
+Phaser.GameObjects.GameObjectFactory.register('slime', function (x, y) {
+	const slime = new Slime(this.scene, x, y)
+
+    this.displayList.add(slime)
+    this.updateList.add(slime)
+
+    return slime
+})
+
+
+    preload() {
+        this.load.binary('mid', 'assets/audio/twinkle_twinkle.mid');
+    }
+
+    create() {
+        var cache = this.cache.binary;
+        var data = cache.get('mid');
+        debugger        
+        var midiJson = midiParser.parse(new Uint8Array(data));
+    }
+
+    update() {}
+}
+
+var config = {
+    type: Phaser.AUTO,
+    parent: 'phaser-example',
+    width: 800,
+    height: 600,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+    },
+    scene: Demo
+};
+
+var game = new Phaser.Game(config);

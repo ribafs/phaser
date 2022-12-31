@@ -1,0 +1,45 @@
+Uma câmera
+
+A câmera é a maneira pela qual todos os jogos são renderizados no Phaser. Elas fornecem uma visão do mundo do jogo e podem ser posicionados, girados, ampliados e rolados de acordo.
+
+Uma câmera consiste em dois elementos: a janela de visualização e os valores de rolagem.
+
+A viewport é a posição física e o tamanho da câmera em seu jogo. As câmeras, por padrão, são criadas do mesmo tamanho do seu jogo, mas sua posição e tamanho podem ser definidos para qualquer coisa. Isso significa que, se você quiser criar uma câmera com tamanho de 320 x 200, posicionada no canto inferior direito do jogo, deverá ajustar a janela de visualização para fazer isso (usando métodos como setViewport e setSize).
+
+Se você deseja alterar para onde a câmera está olhando em seu jogo, role-a. Você pode fazer isso através das propriedades scrollX e scrollY ou do método setScroll. A rolagem não afeta a janela de visualização e a alteração da janela de exibição não afeta a rolagem.
+
+Por padrão, uma câmera renderizará todos os objetos do jogo que puder ver. Você pode alterar isso usando o método ignore, permitindo que você filtre os objetos do jogo por câmera.
+
+Uma câmera também possui efeitos especiais integrados, incluindo Fade, Flash e Camera Shake.
+
+https://photonstorm.github.io/phaser3-docs/Phaser.Cameras.Scene2D.Camera.html
+
+Exemplos com camera
+
+https://phaser.io/examples/v3/category/camera
+
+Phaser 3 Make the camera follow the player
+
+When I was building virtual worlds in Flash/As3 it took quite a bit of maths to make the background scroll. And then to scroll only when the avatar wasn’t near the edge of the world. Phaser’s built-in camera class makes this all very easy and quick.
+
+This code continues to build on the code we build in the last several blog post and is using the utility template.
+Set a background
+
+While not totally necessary I like to set up a background to set the size of the camera. Otherwise, without a moving background. there is nothing to show that the player is moving.
+
+ let bg = this.add.image(0, 0, "background").setOrigin(0, 0);
+ Align.scaleToGameW(bg, 2);
+
+Set the camera bounds
+
+Now that we have the background in place, we can set the bounds of the main camera to the size of the background.
+
+this.cameras.main.setBounds(0, 0, bg.displayWidth, bg.displayHeight);
+
+Set the camera to follow
+
+Now the last thing to do is to tell the camera to keep its focus on the player.
+
+this.cameras.main.startFollow(this.ninja);
+
+https://phasergames.com/downloads/utility-template/

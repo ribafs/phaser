@@ -1,0 +1,23 @@
+Phaser.Scale. ScaleManager
+
+O Scale Manager lida com o dimensionamento, redimensionamento e alinhamento da tela do jogo.
+
+A forma como o dimensionamento é tratado é definindo a tela do jogo para um tamanho fixo, que é definido na configuração do jogo. Você também define o contêiner pai na configuração do jogo. Se nenhum pai for fornecido, o padrão será usar o corpo do documento. O Scale Manager examinará o espaço disponível no pai e dimensionará a tela de acordo. O dimensionamento é feito definindo as propriedades CSS width e height da tela, deixando a largura e a altura do próprio elemento canvas intocadas. O dimensionamento é, portanto, obtido mantendo a tela principal do mesmo tamanho e 'esticando-a' por meio de suas propriedades CSS. Isso fornece o mesmo resultado e velocidade do uso da propriedade CSS transform-scale, sem a necessidade de manipulação de prefixo do navegador.
+
+Os cálculos para a escala são fortemente influenciados pelo tamanho do pai delimitador, que são as dimensões computadas do pai da tela. As regras CSS do elemento pai desempenham um papel importante na operação do Scale Manager. Por exemplo, se o pai não tiver largura ou altura definida, ações como centralização automática falharão em atingir o resultado necessário. O Scale Manager funciona em conjunto com o CSS que você configura na página que hospeda seu jogo, em vez de assumir o controle dele.
+Diretrizes de contenção de tela principal e de exibição:
+
+     Estilize o elemento Pai (da tela do jogo) para controlar o tamanho do Pai e, portanto, o tamanho e o layout do jogo.
+
+     Os estilos CSS do elemento Pai devem efetivamente aplicar o comportamento de limite máximo (e mínimo).
+
+     O elemento pai não deve aplicar um preenchimento, pois isso não é considerado. Se for necessário um preenchimento, aplique-o ao pai do pai ou aplique uma margem ao pai. Se você precisar adicionar uma borda, margem ou qualquer outro CSS ao redor do contêiner do jogo, use um elemento pai e aplique o CSS a ele, caso contrário, você redimensionará constantemente a forma do contêiner do jogo.
+
+     Os estilos CSS do layout da tela de exibição (ou seja, margens, tamanho) não devem ser alterados/especificados, pois podem ser atualizados pelo Gerenciador de escala.
+
+Modos de escala
+
+A maneira como o dimensionamento é tratado é determinada pela propriedade scaleMode. O padrão é NENHUM, o que impede que o Phaser dimensione ou toque na tela ou em seu pai. Neste modo, você é responsável por todo o escalonamento. Os outros modos de dimensionamento permitem dimensionamento automático.
+
+https://photonstorm.github.io/phaser3-docs/Phaser.Scale.ScaleManager.html
+

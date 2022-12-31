@@ -1,0 +1,525 @@
+class Brain extends Phaser.GameObjects.Sprite {
+
+    constructor (scene, x, y)
+    {
+        super(scene, x, y);
+
+        this.setTexture('brain');
+        this.setPosition(x, y);
+    }
+
+    preUpdate (time, delta)
+    {
+        super.preUpdate(time, delta);
+
+        this.rotation += 0.01;
+    }
+
+}
+
+var config = {
+    type: Phaser.AUTO,
+    parent: 'phaser-example',
+    scene: {
+        preload: preload,
+        create: create
+    }
+};
+
+var game = new Phaser.Game(config);
+
+function preload ()
+{
+    this.load.image('brain', 'assets/sprites/brain.png');
+}
+
+function create ()
+{
+    this.add.existing(new Brain(this, 264, 250));
+    this.add.existing(new Brain(this, 464, 350));
+    this.add.existing(new Brain(this, 664, 450));
+}
+-------
+
+Option 1:
+
+You can create your player Class extending the .Sprite class, from whatever physics type you would like, like this :
+
+Don't forget to pass the scene in the constructor !!!
+
+//player.js
+
+class Player extends Phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y) {
+        super(scene, x, y, 'Texture', 'Frame'); // The frame is optional 
+
+    }
+}
+
+and when you call it on the actual scene file, pass this as a parameter, to add the player to that actual scene.
+
+//scene.js
+...
+player = this.physics.add.existing(new Player(this, 100, 100));
+
+Take a look a the docs https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Arcade.Sprite.html
+
+Option 2 :
+
+A alternative is to extend to GameObjects.Sprite, like this :
+
+//Player.js
+
+class Player extends Phaser.GameObjects.Sprite{
+
+    constructor(scene, x, y){
+
+        super(scene, x, y, 'Texture', 'Frame'); // The frame is optional 
+
+        this.scene.add.existing(this);
+    }
+}
+
+
+Invoke passing the scene, x and y as parameters
+
+//Scene.js
+...
+player = this.scene.add.existing(new Player(this, 100, 100));
+
+take a look at the docs https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Sprite.html
+-------------
+
+class Character extends Phaser.GameObjects.Sprite {
+    constructor(config) {
+        super(config.scene, config.x, config.y, "character");
+        //keep a reference to the scene
+        this.scene=config.scene;
+        config.scene.add.existing(this);
+    }
+
+        // load images
+    preload ()
+    {
+        this.load.image('character', 'assets/sprites/character.png');
+    }
+    update ()
+    {
+        // player movement mechanics
+    }
+}
+export default Character;
+
+-----------
+import "phaser";
+export class GameScene extends Phaser.Scene {
+constructor() {
+    super({
+      key: "GameScene"
+    });
+  }
+init(params): void {
+    // TODO
+  }
+preload(): void {
+    // TODO
+  }
+  
+  create(): void {
+    // TODO
+  }
+update(time): void {
+    // TODO
+  }
+};
+
+import "phaser";
+import { GameScene } from "./gameScene";
+const config: GameConfig = {
+  title: "Starfall",
+  width: 800,
+  height: 600,
+  parent: "game",
+  scene: [GameScene],
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: false
+    }
+  },
+  backgroundColor: "#000033"
+};
+...
+
+update(time: number): void {
+    var diff: number = time - this.lastStarTime;
+    if (diff > this.delta) {
+      this.lastStarTime = time;
+      if (this.delta > 500) {
+        this.delta -= 20;
+      }
+      this.emitStar();
+    }
+    this.info.text =
+      this.starsCaught + " caught - " +
+      this.starsFallen + " fallen (max 3)";
+  }
+private onClick(star: Phaser.Physics.Arcade.Image): () => void {
+    return function () {
+      star.setTint(0x00ff00);
+      star.setVelocity(0, 0);
+      this.starsCaught += 1;
+      this.time.delayedCall(100, function (star) {
+        star.destroy();
+      }, [star], this);
+    }
+  }
+private onFall(star: Phaser.Physics.Arcade.Image): () => void {
+    return function () {
+      star.setTint(0xff0000);
+      this.starsFallen += 1;
+      this.time.delayedCall(100, function (star) {
+        star.destroy();
+      }, [star], this);
+    }
+  }
+private emitStar(): void {
+    var star: Phaser.Physics.Arcade.Image;
+    var x = Phaser.Math.Between(25, 775);
+    var y = 26;
+    star = this.physics.add.image(x, y, "star");
+star.setDisplaySize(50, 50);
+    star.setVelocity(0, 200);
+    star.setInteractive();
+star.on('pointerdown', this.onClick(star), this);
+    this.physics.add.collider(star, this.sand, 
+      this.onFall(star), null, this);
+  }
+
+
+import "phaser";
+export class ScoreScene extends Phaser.Scene {
+  score: number;
+  result: Phaser.GameObjects.Text;
+  hint: Phaser.GameObjects.Text;
+constructor() {
+    super({
+      key: "ScoreScene"
+    });
+  }
+init(params: any): void {
+    this.score = params.starsCaught;
+  }
+create(): void {
+    var resultText: string = 'Your score is ' + this.score + '!';
+    this.result = this.add.text(200, 250, resultText,
+      { font: '48px Arial Bold', fill: '#FBFBAC' });
+var hintText: string = "Click to restart";
+    this.hint = this.add.text(300, 350, hintText,
+      { font: '24px Arial Bold', fill: '#FBFBAC' });
+this.input.on('pointerdown', function (/*pointer*/) {
+      this.scene.start("WelcomeScene");
+    }, this);
+  }
+};
+
+---------
+class Scene01 extends Phaser.Scene{
+	constructor(){
+		super('Scene01')
+	}
+	
+	create(){
+		this.sndMusic = this.sound.add('sndMusic')
+		this.sndMusic.play({
+			volume: .5,
+			loop: true
+		})
+		this.sndJump = this.sound.add('sndJump')
+		this.sndGetCoin = this.sound.add('sndGetCoin')
+	
+		this.sky = this.add.image(0,0,'sky').setOrigin(0)
+		this.sky.displayWidth = 1000
+		this.sky.displayHeight = 600
+		
+		this.player = this.physics.add.sprite(50,500,'player')
+		.setCollideWorldBounds(true)
+		.setScale(2)
+		.setBounce(.4)
+		this.player.canJump = true
+		this.player.body.setSize(16,32)
+		
+		
+		this.control = this.input.keyboard.createCursorKeys()
+		
+		this.platforms = this.physics.add.staticGroup()
+		this.platforms.create(0,600,'platform')
+		.setScale(2.5,1)
+		.setOrigin(0,1)
+		.refreshBody()
+		this.platforms.create(200,200,'platform')
+		this.platforms.create(1100,200,'platform')
+		this.platforms.create(1090,475,'platform')
+		this.platforms.create(600,400,'platform')
+		.setScale(.75,1)
+		.refreshBody()
+		
+		this.mPlatforms = this.physics.add.group({
+			allowGravity: false,
+			immovable: true
+		})
+		
+		let mPlatform = this.mPlatforms.create(150,475,'platform').setScale(.25,1)
+			mPlatform.speed = 2
+			mPlatform.minX = 150
+			mPlatform.maxX = 300
+			
+			mPlatform = this.mPlatforms.create(500,280,'platform').setScale(.25,1)
+			mPlatform.speed = 1
+			mPlatform.minX = 500
+			mPlatform.maxX = 800
+			
+		this.coins = this.physics.add.group({
+			key: 'coin',
+			repeat: 14,
+			setXY: {
+				x: 12,
+				y: -50,
+				stepX: 70
+			}
+		})
+		
+		this.coins.children.iterate((c) => {
+			c.setBounceY(Phaser.Math.FloatBetween(.4,.8))
+			c.anims.play('spin')
+		})
+		
+		this.score = 0
+		this.txtScore = this.add.text(15,15,`Pontos: ${this.score}`,{fontSize: '32px'})
+		.setShadow(0,0,'#000',3)
+		.setScrollFactor(0)
+		this.setScore()
+		
+		this.enemies = this.physics.add.group()
+		let enemy = this.enemies.create(Phaser.Math.Between(50,950),0,'enemy')
+		.setBounce(1)
+		.setCollideWorldBounds(true)
+		.setVelocity(Math.random() < .5 ? -200 : 200, 50)
+		
+		this.physics.add.collider(this.player, this.mPlatforms, this.platformMovingThings)
+		this.physics.add.collider(this.player, this.enemies, this.enemyHit, null, this)
+		this.physics.add.collider(this.coins, this.mPlatforms, this.platformMovingThings)
+		this.physics.add.collider(this.player, this.platforms)
+		this.physics.add.collider(this.coins, this.platforms)
+		this.physics.add.collider(this.enemies, this.mPlatforms)
+		this.physics.add.collider(this.enemies, this.platforms)
+		this.physics.add.overlap(this.player, this.coins, this.collectCoin, null, this)
+		
+		this.physics.world.setBounds(0,0,1000,600)
+		this.cameras.main.setBounds(0,0,1000,600).startFollow(this.player)
+		
+		this.gameOver = false
+	}
+	
+	enemyHit(player, enemy){
+		this.sndMusic.stop()
+		this.physics.pause()
+		player.setTint(0xff0000)
+		player.anims.stop()
+		this.gameOver = true
+		
+		setTimeout(()=>{
+			this.add.text(game.config.width/2,game.config.height/2,'GAME OVER',{fontSize:'50px'})
+				.setOrigin(.5)
+				.setShadow(0,0,'#000',3)
+				.setScrollFactor(0)
+				
+				setTimeout(()=>{
+				this.add.text(game.config.width/2,game.config.height/2 + 50,'PRESS ENTER',{fontSize:'32px'})
+					.setOrigin(.5)
+					.setScrollFactor(0)
+					
+				this.input.keyboard.addKey('enter')
+					.on('down',()=>{
+						this.scene.start('StartScene')
+					})
+			},1000)
+		},1000)
+	}
+	
+	setScore(){
+		this.txtScore.setText(this.score > 9 ? `Pontos: ${this.score}` : `Pontos: 0${this.score}`)
+	}
+	
+	collectCoin(p, coin){
+		this.sndGetCoin.play()
+		coin.destroy()
+		this.score++
+		this.setScore()
+		
+		if(this.coins.countActive() <= 0){
+			this.sndMusic.stop()
+			this.scene.start('Scene02',{
+				score: this.score
+			})
+		}
+	}
+	
+	movePlatform(p){
+		if(p.x < p.minX || p.x > p.maxX){
+			p.speed *= -1
+		}
+		p.x += p.speed
+	}
+	
+	platformMovingThings(sprite,plat){
+		sprite.x += plat.speed
+	}
+	
+	update(){
+		if(!this.gameOver){
+			if(this.control.left.isDown){
+				this.player.flipX = true
+				this.player.anims.play('walk',true)
+				this.player.setVelocityX(-150)
+			} else 
+			if(this.control.right.isDown){
+				this.player.flipX = false
+				this.player.anims.play('walk',true)
+				this.player.setVelocityX(150)
+			} else {
+				this.player.setVelocityX(0).setFrame(0)
+			}
+			
+			if(!this.player.body.touching.down){
+				this.player.setFrame(
+					this.player.body.velocity.y < 0 ? 1 : 3
+				)
+			}
+			
+			if(this.control.up.isDown && this.player.canJump && this.player.body.touching.down){
+				this.sndJump.play()
+				this.player.setVelocityY(-500)
+				this.player.canJump = false
+			}
+			
+			if(!this.control.up.isDown && !this.player.canJump && this.player.body.touching.down){
+				this.player.canJump = true
+			}
+			
+			this.mPlatforms.children.iterate((plat) => {
+				this.movePlatform(plat)
+			})
+		}
+	}
+}
+
+----------
+class SceneMain extends Phaser.Scene {
+  constructor() {
+    super({ key: "SceneMain" });
+  }
+
+  preload() {
+    this.load.spritesheet("sprWater", "content/sprWater.png", {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+    this.load.image("sprSand", "content/sprSand.png");
+    this.load.image("sprGrass", "content/sprGrass.png");
+  }
+
+  create() {
+
+    this.anims.create({
+      key: "sprWater",
+      frames: this.anims.generateFrameNumbers("sprWater"),
+      frameRate: 5,
+      repeat: -1
+    });
+
+    this.chunkSize = 16;
+    this.tileSize = 16;
+    this.cameraSpeed = 10;
+
+    this.cameras.main.setZoom(2);
+    this.followPoint = new Phaser.Math.Vector2(
+      this.cameras.main.worldView.x + (this.cameras.main.worldView.width * 0.5),
+      this.cameras.main.worldView.y + (this.cameras.main.worldView.height * 0.5)
+    );
+
+    this.chunks = [];
+
+    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+  }
+
+  getChunk(x, y) {
+    var chunk = null;
+    for (var i = 0; i < this.chunks.length; i++) {
+      if (this.chunks[i].x == x && this.chunks[i].y == y) {
+        chunk = this.chunks[i];
+      }
+    }
+    return chunk;
+  }
+
+  update() {
+
+    var snappedChunkX = (this.chunkSize * this.tileSize) * Math.round(this.followPoint.x / (this.chunkSize * this.tileSize));
+    var snappedChunkY = (this.chunkSize * this.tileSize) * Math.round(this.followPoint.y / (this.chunkSize * this.tileSize));
+
+    snappedChunkX = snappedChunkX / this.chunkSize / this.tileSize;
+    snappedChunkY = snappedChunkY / this.chunkSize / this.tileSize;
+
+    for (var x = snappedChunkX - 2; x < snappedChunkX + 2; x++) {
+      for (var y = snappedChunkY - 2; y < snappedChunkY + 2; y++) {
+        var existingChunk = this.getChunk(x, y);
+
+        if (existingChunk == null) {
+          var newChunk = new Chunk(this, x, y);
+          this.chunks.push(newChunk);
+        }
+      }
+    }
+
+    for (var i = 0; i < this.chunks.length; i++) {
+      var chunk = this.chunks[i];
+
+      if (Phaser.Math.Distance.Between(
+        snappedChunkX,
+        snappedChunkY,
+        chunk.x,
+        chunk.y
+      ) < 3) {
+        if (chunk !== null) {
+          chunk.load();
+        }
+      }
+      else {
+        if (chunk !== null) {
+          chunk.unload();
+        }
+      }
+    }
+
+    if (this.keyW.isDown) {
+      this.followPoint.y -= this.cameraSpeed;
+    }
+    if (this.keyS.isDown) {
+      this.followPoint.y += this.cameraSpeed;
+    }
+    if (this.keyA.isDown) {
+      this.followPoint.x -= this.cameraSpeed;
+    }
+    if (this.keyD.isDown) {
+      this.followPoint.x += this.cameraSpeed;
+    }
+
+    this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
+  }
+}
+
+

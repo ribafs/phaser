@@ -1,0 +1,13 @@
+Para compatibilizar o JS com o ES6
+
+Acessar a pasta do projeto
+
+npm init -y
+
+Localmente
+npm install esbuild
+
+Globalmente
+sudo npm install -g esbuild
+
+node_modules/.bin/esbuild --version

@@ -1,0 +1,15 @@
+Fluxo do código
+
+init() ---> preload() ---> create() ---> update()
+
+init - Quando a cena inicia o método init() é chamado
+
+preload - O phaser carrega as imagens e assets para a memória antes de iniciar o jogo. Estes são carregfados no método preload(). Caso uma cena seja chamada novamente ela será carregada do cache, que fica mais rápido.
+
+create - Após a conclusão do método preload(), o método create é executado. Esta execução lhe dá um bom lugar para criar as principais entidades para o seu jogo (jogador, inimigos, etc).
+
+update - Enquanto a cena está em execução (não pausada), o método update() é executado várias vezes por segundo (o jogo terá como objetivo 60. Em hardware de baixo desempenho, como baixo alcance Android, pode ser menos). Este é um lugar importante para nós usarmos também.
+
+Existem mais métodos no ciclo de vida da cena (render(), shutdown(), destroy())
+
+

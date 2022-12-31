@@ -1,0 +1,698 @@
+Rectangle
+Introduction
+
+Rectangle shape, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage
+Create shape object
+
+var rect = scene.add.rectangle(x, y, width, height, fillColor);
+// var rect = scene.add.rectangle(x, y, width, height, fillColor, fillAlpha);
+
+Custom class
+
+    Define class
+
+class MyRectangle extends Phaser.GameObjects.Rectangle {
+    constructor(scene, x, y, width, height, fillColor) {
+        super(scene, x, y, width, height, fillColor);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var rect = new MyRectangle(scene, x, y, width, height, fillColor);
+
+Color
+
+    Fill color
+        Get
+
+var color = rect.fillColor;
+var alpha = rect.fillAlpha;
+
+Set
+
+rect.setFillStyle(color, alpha);        
+
+Clear
+
+    rect.setFillStyle();
+
+Stroke color
+
+    Get
+
+var color = rect.strokeColor;
+
+Set
+
+rect.setStrokeStyle(lineWidth, color, alpha);
+
+Clear
+
+        rect.setStrokeStyle();
+
+No tint methods
+
+Uses rect.setFillStyle(color, alpha) to change color.
+Alpha
+
+    Get
+
+var alpha = rect.alpha;
+
+Set
+
+    rect.setAlpha(alpha);
+    // rect.alpha = alpha;
+
+Size
+
+    Get
+
+var width = rect.width;
+var height = rect.height;
+
+Set
+
+rect.setSize(width, height);
+
+or
+
+    rect.width = width;
+    rect.height = height;
+
+Display size
+
+    Get
+
+var width = rect.displayWidth;
+var height = rect.displayHeight;
+
+Set
+
+rect.setDisplaySize(width, height);
+
+or
+
+rect.displayWidth = width;
+rect.displayHeight = height;
+
+
+
+Circle
+Introduction
+
+Circle shape, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage
+Create shape object
+
+var circle = scene.add.circle(x, y, radius, fillColor);
+// var circle = scene.add.circle(x, y, radius, fillColor, fillAlpha);
+
+Custom class
+
+    Define class
+
+class MyCircle extends Phaser.GameObjects.Arc {
+    constructor(scene, x, y, radius, fillColor, fillAlpha) {
+        super(scene, x, y, radius, 0, 360, false, fillColor, fillAlpha);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var circle = new MyCircle(scene, x, y, radius, fillColor, fillAlpha);
+
+Color
+
+    Fill color
+        Get
+
+var color = circle.fillColor;
+var alpha = circle.fillAlpha;
+
+Set
+
+circle.setFillStyle(color, alpha);
+
+Clear
+
+    circle.setFillStyle();
+
+Stroke color
+
+    Get
+
+var color = circle.strokeColor;
+
+Set
+
+circle.setStrokeStyle(lineWidth, color, alpha);
+
+Clear
+
+        circle.setStrokeStyle();
+
+No tint methods
+
+Uses circle.setFillStyle(color, alpha) to change color.
+Alpha
+
+    Get
+
+var alpha = circle.alpha;
+
+Set
+
+    circle.setAlpha(alpha);
+    // circle.alpha = alpha;
+
+Radius
+
+    Radius
+        Get
+
+var radius = circle.radius;
+
+Set
+
+circle.setRadius(radius);
+
+or
+
+    circle.radius = radius;
+
+Iterations: Increase this value for smoother arcs, at the cost of more polygons being rendered. Default is 0.01
+
+    Get
+
+var iterations = circle.iterations;
+
+Set
+
+        circle.iterations = iterations;
+
+Display size
+
+    Get
+
+var width = circle.displayWidth;
+var height = circle.displayHeight;
+
+Set
+
+circle.setDisplaySize(width, height);
+
+or
+
+circle.displayWidth = width;
+circle.displayHeight = height;
+
+
+Line
+Introduction
+
+Line shape, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage
+Create shape object
+
+var line = scene.add.line(x, y, x1, y1, x2, y2, strokeColor);
+// var line = scene.add.line(x, y, x1, y1, x2, y2, strokeColor, strokeAlpha);
+
+Custom class
+
+    Define class
+
+class MyCurve extends Phaser.GameObjects.Line {
+    constructor(scene, x, y, x1, y1, x2, y2, strokeColor) {
+        super(scene, x, y, x1, y1, x2, y2, strokeColor);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var line = new MyLine(scene, x, y, x1, y1, x2, y2, strokeColor);
+
+Set color
+
+    Fill color
+        Get
+
+var color = line.fillColor;
+var alpha = line.fillAlpha;
+
+Set
+
+line.setFillStyle(color, alpha);
+
+Clear
+
+    line.setFillStyle();
+
+Stroke color
+
+    Get
+
+var color = line.strokeColor;
+
+Set
+
+line.setStrokeStyle(lineWidth, color, alpha);
+
+Clear
+
+        line.setStrokeStyle();
+
+No tint methods
+
+Uses line.setFillStyle(color, alpha) to change color.
+Alpha
+
+    Get
+
+var alpha = line.alpha;
+
+Set
+
+    line.setAlpha(alpha);
+    // line.alpha = alpha;
+
+Set end points
+
+line.setTo(x1, y1, x2, y2);
+
+Line width
+
+line.setLineWidth(startWidth, endWidth);
+
+    endWidth : The end width of the line. Only used in WebGL.
+
+Display size
+
+    Get
+
+var width = line.displayWidth;
+var height = line.displayHeight;
+
+Set
+
+line.setDisplaySize(width, height);
+
+or
+
+    line.displayWidth = width;
+    line.displayHeight = height;
+
+Other properties
+
+See game object
+
+
+Polygon
+Introduction
+
+Polygon shape, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage
+Create shape object
+
+var polygon = scene.add.polygon(x, y, points, fillColor);
+// var polygon = scene.add.polygon(x, y, points, fillColor, fillAlpha);
+
+    points :
+        An array of number : [x0, y0, x1, y1, ...]
+        An array of points : [{x:x0, y:y0}, {x:x1, y:y1}, ...]
+        A string : 'x0 y0 x1 y1 ...'
+
+Note
+
+Shift given points to align position (0, 0)
+Custom class
+
+    Define class
+
+class MyPolygon extends Phaser.GameObjects.Polygon {
+    constructor(scene, x, y, points, fillColor) {
+        super(scene, x, y, points, fillColor);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var polygon = new MyPolygon(scene, x, y, points, fillColor);
+
+Color
+
+    Fill color
+        Get
+
+var color = polygon.fillColor;
+var alpha = polygon.fillAlpha;
+
+Set
+
+polygon.setFillStyle(color, alpha);
+
+Clear
+
+    polygon.setFillStyle();
+
+Stroke color
+
+    Get
+
+var color = polygon.strokeColor;
+
+Set
+
+polygon.setStrokeStyle(lineWidth, color, alpha);
+
+Clear
+
+        polygon.setStrokeStyle();
+
+No tint methods
+
+Uses polygon.setFillStyle(color, alpha) to change color.
+Alpha
+
+    Get
+
+var alpha = polygon.alpha;
+
+Set
+
+    polygon.setAlpha(alpha);
+    // polygon.alpha = alpha;
+
+Smooth
+
+Smooths the polygon over the number of iterations specified.
+
+polygon.smooth(iterations);
+
+Display size
+
+    Get
+
+var width = polygon.displayWidth;
+var height = polygon.displayHeight;
+
+Set
+
+polygon.setDisplaySize(width, height);
+
+or
+
+polygon.displayWidth = width;
+polygon.displayHeight = height;
+
+
+Triangle
+Introduction
+
+Triangle shape, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage
+Create shape object
+
+var triangle = scene.add.triangle(x, y, x1, y1, x2, y2, x3, y3, fillColor);
+// var triangle = scene.add.triangle(x, y, x1, y1, x2, y2, x3, y3, fillColor, fillAlpha);
+
+Custom class
+
+    Define class
+
+class MyTriangle extends Phaser.GameObjects.Triangle {
+    constructor(scene, x, y, x1, y1, x2, y2, x3, y3, fillColor) {
+        super(scene, x, y, x1, y1, x2, y2, x3, y3, fillColor);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var triangle = new MyTriangle(scene, x, y, x1, y1, x2, y2, x3, y3, fillColor);
+
+Color
+
+    Fill color
+        Get
+
+var color = triangle.fillColor;
+var alpha = triangle.fillAlpha;
+
+Set
+
+triangle.setFillStyle(color, alpha);
+
+Clear
+
+    triangle.setFillStyle();
+
+Stroke color
+
+    Get
+
+var color = triangle.strokeColor;
+
+Set
+
+triangle.setStrokeStyle(lineWidth, color, alpha);
+
+Clear
+
+        triangle.setStrokeStyle();
+
+No tint methods
+
+Uses triangle.setFillStyle(color, alpha) to change color.
+Alpha
+
+    Get
+
+var alpha = triangle.alpha;
+
+Set
+
+    triangle.setAlpha(alpha);
+    // triangle.alpha = alpha;
+
+Set vertices
+
+triangle.setTo(x1, y1, x2, y2, x3, y3);
+
+Triangle width
+
+triangle.setLineWidth(startWidth, endWidth);
+
+    endWidth : The end width of the triangle. Only used in WebGL.
+
+Display size
+
+    Get
+
+var width = triangle.displayWidth;
+var height = triangle.displayHeight;
+
+Set
+
+triangle.setDisplaySize(width, height);
+
+or
+
+triangle.displayWidth = width;
+triangle.displayHeight = height;
+
+
+Grid
+Introduction
+
+Grid shape, built-in game object of phaser.
+
+    Author: Richard Davey
+
+Usage
+Create shape object
+
+var grid = scene.add.grid(x, y, width, height, cellWidth, cellHeight, fillColor, fillAlpha, outlineFillColor, outlineFillAlpha);
+
+Custom class
+
+    Define class
+
+class MyGrid extends Phaser.GameObjects.Grid {
+    constructor(scene, x, y, width, height, cellWidth, cellHeight, fillColor, fillAlpha, outlineFillColor, outlineFillAlpha) {
+        super(scene, x, y, width, height, cellWidth, cellHeight, fillColor, fillAlpha, outlineFillColor, outlineFillAlpha);
+        // ...
+        scene.add.existing(this);
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var grid = new MyGrid(scene, x, y, width, height, cellWidth, cellHeight, fillColor, fillAlpha, outlineFillColor, outlineFillAlpha);
+
+Color
+
+    Fill color
+        Get
+
+var color = grid.fillColor;
+var alpha = grid.fillAlpha;
+
+Set
+
+grid.setFillStyle(color, alpha);
+
+Clear
+
+    grid.setFillStyle();
+
+Stroke color
+
+    Get
+
+var color = grid.strokeColor;
+
+Set
+
+grid.setStrokeStyle(lineWidth, color, alpha);
+
+Clear
+
+    grid.setStrokeStyle();
+
+Alternating color
+
+    Get
+
+var color = grid.altFillColor;
+
+Set
+
+grid.setAltFillStyle(color, alpha);
+
+Clear
+
+    grid.setAltFillStyle();
+
+Outline color
+
+    Get
+
+var color = grid.outlineFillColor;
+
+Set
+
+grid.setOutlineStyle(color, alpha;
+
+Clear
+
+        grid.setOutlineStyle();
+
+No tint methods
+
+Uses grid.setFillStyle(color, alpha) to change color.
+Alpha
+
+    Get
+
+var alpha = grid.alpha;
+
+Set
+
+    grid.setAlpha(alpha);
+    // grid.alpha = alpha;
+
+Display size
+
+    Get
+
+var width = grid.displayWidth;
+var height = grid.displayHeight;
+
+Set
+
+grid.setDisplaySize(width, height);
+
+or
+
+grid.displayWidth = width;
+grid.displayHeight = height;
+
+
+
+        var bg = this.add.rectangle(400, 300, 300, 300, 0x333333);
+        var obj = this.add.circle(400, 300, 20, 0xff0000)
+            .setInteractive({ draggable: true })
+            .on('drag', function (pointer, dragX, dragY) {
+                obj.setPosition(dragX, dragY);
+            })
+
+

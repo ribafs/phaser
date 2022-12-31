@@ -1,0 +1,67 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Testes com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<br><br><br><br>
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Funções básicas do jogo
+
+    // Carregar os assets para a memória
+    function preload ()
+    {
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+        // Convertendo radianos para graus
+        this.rad = Phaser.Math.DegToRad(180);
+        var result = this.rad.toFixed(2)
+        console.log('180 graus vale '+result)
+        this.add.text(100, 300, '180 graus vale '+result, { fontSize: '32px' });
+        console.log(rad2deg(180))
+    }
+
+    // Atualizar os objetos a cada frame
+    function update ()
+    {
+        //console.log(rad2deg(180)) // Caso descomente esta linha verá sendo executada várias vezes rapidamente, no caso, 60 vezes por segundo
+    }
+
+    function rad2deg(deg){
+        this.rad = Phaser.Math.DegToRad(deg);
+        this.rad = this.rad.toFixed(2)
+        return '180 graus vale '+this.rad
+    }
+</script>
+
+</body>
+</html>

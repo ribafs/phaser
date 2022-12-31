@@ -1,0 +1,109 @@
+
+var newScene = scene.scene.add(key, sceneConfig, autoStart, data);
+
+Destroy scene¶
+
+scene.scene.remove(key);
+
+    Fires scene.events destroy
+
+Start scene¶
+
+    Launch the given Scene and run it in parallel with this one
+
+scene.scene.launch(key, data);
+
+Shutdown this Scene and run the given one
+
+scene.scene.start(key, data);
+
+Restarts this Scene
+
+    scene.scene.restart(data);
+
+Pause/Resume scene¶
+
+    Pause : stops the update step but still renders
+
+scene.scene.pause(key);
+// scene.scene.pause();  // pause myself
+
+    Fires scene.events pause
+
+Resume : starts the update loop again
+
+scene.scene.resume(key);
+// scene.scene.resume();  // resume myself
+
+    Fires scene.events resume
+
+Sleep : no update, no render but doesn't shutdown
+
+scene.scene.sleep(key);
+// scene.scene.sleep();  // sleep myself
+
+    Fires scene.events sleep
+
+Wake-up: starts update and render
+
+scene.scene.wake(key);
+// scene.scene.wake();  // wake-up myself
+
+    Fires scene.events wake
+
+Makes this Scene sleep then starts the Scene given
+
+    scene.scene.switch(key);
+
+Run scene¶
+
+Runs the given Scene, but does not change the state of this Scene.
+
+If the given Scene is paused, it will resume it. If sleeping, it will wake it. If not running at all, it will be started.
+
+scene.scene.run(key, data);
+
+Stop scene¶
+
+Shutdown the Scene, clearing display list, timers, etc.
+
+scene.scene.stop(key);
+// scene.scene.stop();  // stop myself
+
+Set visible¶
+
+scene.scene.setVisible(value, key);  // value: true/false
+// scene.scene.setVisible(value);    // set visible to myself
+
+Read status¶
+
+var isSleep = scene.scene.isSleeping(key);
+// var isSleep = scene.scene.isSleeping();
+
+var isPaused = scene.scene.isPaused(key);
+// var isPaused = scene.scene.isPaused();
+
+var isActive = scene.scene.isActive(key);
+// var isActive = scene.scene.isActive();
+
+var isVisible = scene.scene.isVisible(key);
+// var isVisible = scene.scene.isVisible();
+
+scene.scene.transition({
+    target: key,
+    // data: null,
+    // moveAbove: false,
+    // moveBelow: false,
+
+    duration: 1000,
+
+    // remove: false,
+    // sleep: false,
+    // allowInput: false,
+
+    // onUpdate: null,
+    // onUpdateScope: scene
+})
+
+
+

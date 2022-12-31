@@ -1,0 +1,39 @@
+
+
+When you first setup your Phaser.Scene you'll need to bind to input/keyboard events and trigger your functionality accordingly.
+
+Since you actually asked about the pressing of it, I would recommend checking for the keydown event.
+
+In create() watch for the W key by using the following:
+
+create() {
+    // ...
+    this.input.keyboard.on('keydown_W', this.yourFunction, this);
+    // ...
+}
+
+Now when the W button is pushed the yourFunction method will be called. S is setup in a similar way.
+
+You can either point to the same function, or use a different one, depending upon your logic. To this will be passed the input event that triggered it, which is how you can, if you want, determine which key triggered it. This is the snippet which J.Do posted in their answer, and that I've tweaked.
+
+yourFunction(event) {
+    // Here you can see what's passed when Phaser triggers it.
+    console.log(arguments);
+
+    if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.S) {
+        console.log('S was pressed');
+    } else if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.W) {
+        console.log('W was pressed');
+    }
+}
+
+--------------
+You should be able to detect with the code below:
+
+let code = event.keyCode;
+
+if(code == Phaser.Input.Keyboard.KeyCodes.W)
+{
+    // do something
+}
+

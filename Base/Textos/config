@@ -1,0 +1,25 @@
+O config é um objeto que guarda diversas configurações do jogo
+
+Existem algumas formas de declarar
+
+let game
+
+window.onload = function(){
+	const config = {
+		type: Phaser.Canvas, // Phaser.AUTO || Phaser.WebGL
+		width: 800,
+		height: 550,
+		scene: [Scene01],
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: {y: 1000}
+            }
+        },
+		pixelArt: true // Melhora a definição das iamgens
+	}
+
+	game = new Phaser.Game(config)
+}
+
+

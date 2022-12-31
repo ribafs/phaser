@@ -1,0 +1,59 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    let config = {
+        type: Phaser.AUTO,
+        scene: {
+            preload: preload,
+            create: create
+        },
+        width: 800,
+        height: 550,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+		pixelArt: true
+    };
+
+    let game = new Phaser.Game(config);
+
+    const X = 100;
+    const Y = 50
+
+    function preload ()
+    {
+        //this.load.image('enemy', 'assets/images/enemy.png')
+        imagePreload('enemy', 'assets/images/enemy.png')
+    }
+
+    function create ()
+    {
+        //this.add.image(X,Y,'enemy')
+        imageCreate(X,Y,'enemy')
+    }
+
+    function imageCreate(x,y,alias){
+        this.add.image(x,y,alias)
+    }
+
+
+    function imagePreload(alias, imagePath){
+	    //this.load.image(alias, imagePath)
+    }
+
+</script>
+</body>
+</html>

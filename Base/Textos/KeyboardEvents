@@ -1,0 +1,68 @@
+ Phaser: Keyboard events
+
+Published in 2021
+
+    This post is part of a Phaser series. Click here to see the first post of the series.
+
+Mouse events are fired on a GameObject, because with the mouse we click on elements.
+
+With the keyboard instead we press keys, not linked to any GameObject in particular.
+
+So we listen for those events on this.input.keyboard, like this:
+
+this.input.keyboard.on(<event>, function() {
+
+})
+
+<event> is a string that can be keyup or keydown, to intercept all keys pressed, or a combination of it with a letter identifying a specific key, like:
+
+    keyup-A
+    keyup-THREE
+    keydown-F12
+    keydown-ENTER
+
+We have a large number of identifiers we can use, including:
+
+    A ~ Z
+    F1 ~ F12
+    BACKSPACE
+    TAB
+    ENTER
+    SHIFT
+    CTRL. ALT
+    PAUSE
+    CAPS_LOCK
+    ESC
+    SPACE
+    PAGE_UP, PAGE_DOWN
+    END, HOME
+    LEFT, UP, RIGHT,DOWN
+    PRINT_SCREEN
+    INSERT, DELETE
+    ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE
+    NUMPAD_ZERO, NUMPAD_ONE, NUMPAD_TWO, NUMPAD_THREE, NUMPAD_FOUR, NUMPAD_FIVE, NUMPAD_SIX, NUMPAD_SEVEN, NUMPAD_EIGHT, NUMPAD_NINE, NUMPAD_ADD, NUMPAD_SUBTRACT
+
+Instead of listenining on individual keys, we can get an object calling this.input.keyboard.createCursorKeys():
+
+let cursors
+
+function create() {
+  cursors = this.input.keyboard.createCursorKeys()
+}
+
+and in the update() function, we can check if one specific key has been pressed, and do something when this happens:
+
+function update() {
+  if (cursors.right.isDown) {
+    text.x += 5
+  }
+  if (cursors.left.isDown) {
+    text.x -= 5
+  }
+  if (cursors.up.isDown) {
+    text.y -= 5
+  }
+  if (cursors.down.isDown) {
+    text.y -= 5
+  }
+}

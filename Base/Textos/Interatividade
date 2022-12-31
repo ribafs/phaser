@@ -1,0 +1,9 @@
+Adicionando interatividade
+
+Você pode adicionar interatividade ao seu jogo usando uma variedade de tipos de entrada.
+
+this.input.mouse.x - encontra a localização X do mouse
+
+var cursors = game.input.keyboard.createCursorKeys() - cria um objeto que contém teclas de atalho para as setas para cima, esquerda, direita e para baixo. ○ cursors.left.isDown verifica se a tecla esquerda está pressionada.
+
+

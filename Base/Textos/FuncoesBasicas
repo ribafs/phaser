@@ -1,0 +1,61 @@
+preload()
+
+O Phaser precisa saber quais imagens preparar antes que o jogo possa ser exibido. Esta fase é chamada de função preload().
+
+function preload() {
+    this.load.image('background', 'assets/images/background.png');
+}
+
+
+create()
+
+Assim que a função preload() estiver concluída, o Phaser precisa que você diga como o jogo vai começar e isso acontece na função create(), que é executada apenas uma única vez.
+
+function create() {
+}
+
+A função create() permite configurar variáveis, objetos e a aparência do seu jogo.
+
+function create() {
+    myGame.score = 0;
+}
+
+update()
+
+Ao contrário da preload() e da create(), que são executados apenas uma vez cada, a função update() é executada a cada milissegundo, no caso, a cada quadro.
+
+function update() {
+}
+
+update() é onde seu jogador deve se mover, a pontuação é atualizada, o jogador se movimenta, atira, colide com objetos, etc.
+
+function update() {
+    myGame.score += 1;
+}
+
+Desenhando Objetos
+
+Você pode desenhar objetos interativos na tela usando a função add() do Phaser.
+
+myGame.character = this.add.sprite(x, y, 'charName');
+
+
+O nome das funções básicas pode ser qualquer um, mas para mudar devemos indicas no objeto config
+
+ const phaserConfig = {
+                type: Phaser.AUTO,
+                parent: "game",
+                width: 1280,
+                height: 720,
+                backgroundColor: "#5DACD8",
+                scene: {
+                    init: initScene,
+                    preload: preloadScene,
+                    create: createScene,
+                    update: updateScene
+                }
+            };
+
+Mas é uma boa prática não alterar os nomes padrões, apra que fique mais fácil de lembrar.
+
+

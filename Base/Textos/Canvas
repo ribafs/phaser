@@ -1,0 +1,35 @@
+ Phaser: The Canvas
+
+Published in 2021
+
+Phaser games are rendered inside an HTML <canvas> element.
+
+If you’re new to Canvas, I talk in details about it in the Canvas API tutorial.
+
+We create a canvas, with a specific set of width/height, and we draw into it.
+
+We can’t use CSS to style elements, but we have to use a more low level and difficult API.
+
+Luckily Phaser (and other libraries that use Canvas under the hood) abstract away all the tiny details, so we can focus on the application code.
+
+We initialize a Phaser game by calling the Game static method on the Phaser object:
+
+new Phaser.Game()
+
+We must pass to this function an object literal with a set of configuration options:
+
+new Phaser.Game({})
+
+In this configuration object we can set various properties.
+
+To start with, we can set the width and height of the canvas:
+
+new Phaser.Game({
+  width: 450,
+  height: 600
+})
+
+Another property we can pass is backgroundColor, which accepts an hexadecimal value, like 0x000000 for black.
+
+    Colors are similar to CSS colors, but you need to prepend 0x so JS knows it’s an hexadecimal number.
+

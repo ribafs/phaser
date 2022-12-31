@@ -1,0 +1,34 @@
+Phaser 2
+
+Phaser 3
+
+Phaser 4
+
+O Phaser 4 é uma evolução do Phaser 3. Manterá as melhores partes do 3 e melhorará o resto. O Phaser 4 será escrito em TypeScript e será mais modular e flexível. O desenvolvimento acabou de começar, mas o plano é que você seja capaz de usar uma API do tipo Phaser 3 ou o novo estilo de importar e usar apenas o que você precisa.
+
+Terei que usar TypeScript com Phaser 4?
+
+Não! Quando o Phaser 4 for lançado, arquivos .js e .min.js pré-construídos serão disponibilizados, como você está acostumado. Se você consumir os fontes do Phaser diretamente, poderá até mesmo configurar seu bundler para compilar o código TypeScript para você, enquanto ainda escreve seu código em JavaScript!
+
+
+https://phaser.io/download/archive
+
+Versão      Data
+
+0.5         12/04/2013
+1.0.0       13/09/2013
+2.0.0       13/03/2014
+3.0.0       13/02/2018
+3.55-2      27/05/2021  (atual 19/12/2022)
+4           Em desenvolvimento
+https://github.com/phaserjs/phaser (Reiniciando o universo Phaser do zero.)
+
+Exemplos do Phaser 4 - https://github.com/phaserjs/dev
+
+Sandbox - https://phaserjs.github.io/dev/examples/live/
+
+https://phaser.io/phaser3/devlog
+
+https://www.patreon.com/posts/34531102
+
+

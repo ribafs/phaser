@@ -1,0 +1,88 @@
+Ao tentar usar export e import. recebi
+
+Unexpected token 'export' (at solved
+
+Pesquisando encontrei no onipresente StackOverflow
+
+Atualizado para 2022
+
+Você está usando a sintaxe do Módulo EcmaScript (ESM ou 'Módulos ES6'), mas seu ambiente não a suporta.
+
+As versões do NodeJS anteriores à v14.13.0 não suportam ESM (sintaxe da palavra-chave de exportação) e usam módulos CommonJS (sintaxe da propriedade module.exports). NodeJS v14.13.0 e mais recente suporta ESM, mas deve ser ativado primeiro.
+
+Soluções:
+
+     Se você estiver usando o NodeJS v14.13.0 ou mais recente (que suporta ESM), poderá habilitá-lo definindo "type":"module" em seu projeto package.json
+     Refatorar com a sintaxe CommonJS Module (para versões mais antigas do NodeJS)
+     Considere usar TypeScript juntamente com os pacotes ts-node ou ts-node-dev npm (para transpilação instantânea em tempo de desenvolvimento) e escreva TypeScript em arquivos .ts
+     Transpile ESM para CommonJS usando esbuild (pacote esbuild no npm) configurado para transpilar seu javascript ES6 para um destino CommonJS compatível com seu ambiente. (babel não é mais recomendado)
+
+Para import e export preciso usar o ES6.
+
+
+
+My two cents
+Export
+
+ES6
+
+    myClass.js
+
+export class MyClass1 {
+}
+export class MyClass2 {
+}
+
+    other.js
+
+import { MyClass1, MyClass2 } from './myClass';
+
+CommonJS Alternative
+
+    myClass.js
+
+class MyClass1 {
+}
+class MyClass2 {
+}
+module.exports = { MyClass1, MyClass2 }
+// or
+// exports = { MyClass1, MyClass2 };
+
+    other.js
+
+const { MyClass1, MyClass2 } = require('./myClass');
+
+Export Default
+
+ES6
+
+    myClass.js
+
+export default class MyClass {
+}
+
+    other.js
+
+import MyClass from './myClass';
+
+CommonJS Alternative
+
+    myClass.js
+
+module.exports = class MyClass1 {
+}
+
+    other.js
+
+const MyClass = require('./myClass');
+
+Hope this helps
+
+
+The JavaScript require() function is only available by default in Node.js environment.
+
+This means the browser won’t know what you mean with the require() call in your code.
+
+
+<script type="module" src="helper.js"></script>

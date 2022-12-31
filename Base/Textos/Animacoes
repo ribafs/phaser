@@ -1,0 +1,41 @@
+Animação baseada em quadro/frame.
+
+Animando objetos
+
+Você pode animar objetos adicionando à sua propriedade animações e escolhendo os quadros que devem ser mostrados em ordem.
+
+As animações no Phaser consistem em uma sequência de objetos AnimationFrame, que são gerenciados por essa classe, juntamente com propriedades que afetam a reprodução, como a taxa de quadros ou o atraso das animações.
+
+Essa classe contém todas as propriedades e métodos necessários para manipular a reprodução da animação diretamente para uma instância de AnimationState, que pertence a um Sprite ou objeto de jogo semelhante.
+
+Normalmente, você não cria uma instância dessa classe diretamente, mas, em vez disso, acessa o AnimationManager ou o AnimationState e usa seus métodos de criação, dependendo se você precisa de uma animação global ou local para um Sprite específico.
+
+Exemplo: temos um sprite com 8 quadros.
+
+    this.anims.create({
+        key: 'left',
+        frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+Aqui quando o personagem pressiona a tecla para a esquerda, ele usa a animação com os quadros de 0 a 3
+
+    this.anims.create({
+        key: 'turn',
+        frames: [ { key: 'player', frame: 4 } ],
+        frameRate: 20
+    });
+
+Neste é usado apenas o quadro 4, que é a imagem do personagem parado.
+
+myGame.character.animations.add('animationName', [0, 1, 2]);
+
+
+Animando objetos
+
+Para acionar uma animação, use o comando play. Nomeie a animação que deseja reproduzir, insira uma taxa de quadros e diga se a animação deve entrar em loop (verdadeiro) ou não (falso).
+
+myGame.character.animations.play('animationName',30,false);
+
+

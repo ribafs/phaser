@@ -1,0 +1,17 @@
+Grupos
+
+Caso tenha um objeto que deseja repetir na tela e dar as mesmas propriedades para cada um deles? Faça um grupo.
+
+myGame.myGroup = this.add.group();
+
+Usando grupos
+
+Use um loop for ou função timer para instanciar objetos e adicioná-los a um grupo.
+
+let groupItem = myGroup.create(x, y, 'spriteToUse');
+
+ou
+
+myGame.myGroup.add(groupItem);
+
+

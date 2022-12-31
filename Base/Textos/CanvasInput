@@ -1,0 +1,516 @@
+Canvas input
+Introduction
+
+An invisible Input DOM element to receive character input and display on DynamicText.
+
+Inspirited from CanvasInput.
+
+    Author: Rex
+    Game object
+
+Live demos
+
+    Simple
+    Text input
+    Number input
+    With rexui-Label
+
+Usage
+
+Sample code
+Install plugin
+Load minify file
+
+    Load plugin (minify file) in preload stage
+
+scene.load.plugin('rexcanvasinputplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexcanvasinputplugin.min.js', true);
+
+Add canvas-input object
+
+    var txt = scene.add.rexCanvasInput(x, y, width, height, config);
+
+Import plugin
+
+    Install rex plugins from npm
+
+npm i phaser3-rex-plugins
+
+Install plugin in configuration of game
+
+import CanvasInputPlugin from 'phaser3-rex-plugins/plugins/canvasinput-plugin.js';
+var config = {
+    // ...
+    plugins: {
+        global: [{
+            key: 'rexCanvasInputPlugin',
+            plugin: CanvasInputPlugin,
+            start: true
+        },
+        // ...
+        ]
+    }
+    // ...
+};
+var game = new Phaser.Game(config);
+
+Add canvas-input object
+
+    var txt = scene.add.rexCanvasInput(x, y, width, height, config);
+
+Import class
+
+    Install rex plugins from npm
+
+npm i phaser3-rex-plugins
+
+Import class
+
+import CanvasInput from 'phaser3-rex-plugins/plugins/canvasinput.js';
+
+Add canvas-input object
+
+    var txt = new CanvasInput(textGameObject, x, y, width, height, config);
+    scene.add.existing(txt);
+
+Create instance
+
+var txt = scene.add.rexCanvasInput({
+    // Parameters of DynamicText
+    x: 0, 
+    y: 0,
+    width: undefined, 
+    height: undefined,
+
+    padding: 0,  // {left: 0, right: 0, top: 0, bottom: 0}
+
+    background: {
+        color: null,
+        color2: null,
+        horizontalGradient: true,
+
+        stroke: null,
+        strokeThickness: 2,
+
+        cornerRadius: 0,
+        cornerIteration: null,
+
+        // Style when focus
+        // 'focus.color': ...
+        // 'focus.color2': ...
+        // 'focus.stroke': ...
+    },
+    focusStyle: undefined,
+
+    innerBounds: {
+        color: null,
+        color2: null,
+        horizontalGradient: true,
+
+        stroke: null,
+        strokeThickness: 2
+    },
+
+    style: {
+        bold: false,
+        italic: false,
+        fontSize: '16px',
+        fontFamily: 'Courier',
+        color: '#fff',
+        stroke: '#fff',
+        strokeThickness: 0,
+        shadowColor: null,
+        shadowOffsetX: 0,
+        shadowOffsetY: 0,
+        shadowBlur: 0,
+        backgroundColor: null,
+        backgroundHeight: undefined,
+        backgroundBY: undefined,
+        offsetX: 0,
+        offsetY: 0,
+
+        // Style when cursor move on
+        // 'cursor.color': ...
+        // 'cursor.backgroundColor': ...
+        // 'cursor.xxx': ...
+    },
+    cursorStyle: undefined,
+
+    childrenInteractive: false,
+
+    text: '',
+
+    wrap: {
+        padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+        },
+        lineHeight: undefined,
+        useDefaultLineHeight: true,
+        maxLines: 1,
+        wrapWidth: undefined,
+        letterSpacing: 0,
+        hAlign: 0,
+        vAlign: 'center',  // For single line text input
+        charWrap: true,    // For single line text input
+    },
+
+    // Parameters of hidden-text-editor   
+    // inputType: 'text',  // 'text'|'password'|'textarea'|...                
+
+    // readOnly: false,
+    // maxLength: undefined,
+    // minLength: undefined,
+    // selectAll: false,
+
+    // enterClose: true,
+
+    // Callbacks
+    // onOpen: function (textObject, hiddenInputText) {
+    // },
+
+    // onClose: function (textObject, hiddenInputText) {
+    // },
+
+    // onUpdate: function (text, textObject, hiddenInputText) {
+    //     return text;
+    // },   
+
+    // onAddChar: function(child, index, canvasInput) {
+    //    child.modifyStyle({...})
+    // },
+
+    // onCursorOut: function(child, cursorIndex, canvasInput) {
+    //     child.modifyStyle({
+    //         
+    //     });
+    // },
+
+    // onCursorIn: function(child, cursorIndex, canvasInput) {
+    //     child.modifyStyle({
+    //         
+    //     });
+    // },
+
+    // parseTextCallback: function(text) {
+    //     return text;
+    // }.
+
+});
+
+    Parameters of DynamicText...
+        wrap : Some default value in wrap are changed
+            wrap.useDefaultLineHeight : Default value is true
+            wrap.maxLines : Default value is 1
+            wrap.vAlign : Default value is 'center'
+    Parameters of hidden-text-editor
+        inputType : Type of element
+            'text', 'password', 'textarea', ...
+        enterClose : Set true to close input text when enter-key was pressed. Default value is true.
+        readOnly :
+            true : un-editable.
+            false : Editable. Defaule behavior.
+        maxLength, minLength : Maximun or minimun of input characters
+        selectAll : Set to true to select all characters when focusing.
+    Callbacks
+        onOpen : Callback invoked when focus on this hidden input text.
+
+function (textObject) {
+    // textObject.setInputText(txt);
+}
+
+onClose : Callback invoked when blur.
+
+function (textObject) {            
+}
+
+onUpdate :
+
+    A callback invoked in each tick of editing.
+
+    function (text, textObject) {
+        // return text;
+    }
+
+        Can return a new string for text game object displaying.
+    'number' : Only output number string.
+
+onAddChar : Callback invoked when adding new character child
+
+function(child, index, canvasInput) {
+    child.modifyStyle({...})
+}
+
+    child : character child
+
+onCursorOut : Callback invoked when cursor move out of a character child
+
+function(child, index, canvasInput) {
+    child.modifyStyle({...})
+}
+
+    child : character child
+
+onCursorIn : Callback invoked when cursor move on a character child
+
+function(child, index, canvasInput) {
+    child.modifyStyle({...})
+}
+
+    child : character child
+
+parseTextCallback : Callback of parsing text (txt.text) to value (txt.value)
+
+    undefined : Bypass text to value. Default behavior.
+    A function object
+
+        function(text) {
+            return text;
+        }
+
+focusStyle : Will apply this style to background when focusing.
+
+    undefined : Ignore this behavior.
+    A plain object
+
+    {
+        color: null,
+        color2: null,
+        horizontalGradient: true,
+
+        stroke: null,
+        strokeThickness: 2,
+
+        cornerRadius: 0,
+        cornerIteration: null,
+    }
+
+    Or add these style settings in background parameter, with prefix 'focus.'.
+
+cursorStyle : Will apply this style when cursor move on a character child.
+
+    undefined : Ignore this behavior.
+    A plain object
+
+        {
+            bold: false,
+            italic: false,
+            fontSize: '16px',
+            fontFamily: 'Courier',
+            color: '#fff',
+            stroke: '#fff',
+            strokeThickness: 0,
+            shadowColor: null,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            shadowBlur: 0,
+            backgroundColor: null,
+            backgroundHeight: undefined,
+            backgroundBY: undefined,
+            offsetX: 0,
+            offsetY: 0
+        }
+
+        Or add these style settings in style parameter, with prefix 'cursor.'.
+
+Number input
+
+txt.setNumberInput();
+
+Custom class
+
+    Define class
+
+class MyCanvasInput extends CanvasInput {
+    constructor(textGameObject, x, y, width, height, config)) {
+        super(textGameObject, x, y, width, height, config)) {
+        // ...            
+    }
+    // ...
+
+    // preUpdate(time, delta) {}
+}
+
+    scene.add.existing(gameObject) : Adds an existing Game Object to this Scene.
+        If the Game Object renders, it will be added to the Display List.
+        If it has a preUpdate method, it will be added to the Update List.
+
+Create instance
+
+    var txt = new MyCanvasInput(textGameObject, config);
+
+Open editor
+
+txt.open();
+
+or
+
+txt.open(onCloseCallback);
+
+    onCloseCallback : Callback invoked when closing text-editor
+
+Close editor
+
+txt.close();
+
+Is opened
+
+var isOpened = txt.isOpened;
+
+Read only
+
+    Enable read only
+
+txt.setReadOnly();
+// txt.setReadOnly(true);
+
+or
+
+txt.readOnly = true;
+
+Disable read only
+
+txt.setReadOnly(false);
+
+or
+
+txt.readOnly = false;
+
+Get read only
+
+    var readOnlyEanble = txt.readOnly;
+
+Text
+
+    Display text on dynamic text game object
+        Get
+
+var text = txt.text;
+
+or
+
+var text = txt.displayText;
+
+Set
+
+txt.setText(text);
+
+or
+
+    txt.setDisplayText(text);
+
+Input text on hidden text edit behavior
+
+    Get
+
+var text = txt.inputText;
+
+Set
+
+        var text = txt.setInputText(text);
+
+Value
+
+    Get. Parse text to value.
+
+var value = txt.getValue();
+// var value = txt.value;
+
+    Set parseTextCallback
+
+txt.setParseTextCallback(callback);
+
+    callback :
+        undefined : Bypass text to value. Default behavior.
+        A function object
+
+            function(text) {
+                return text;
+            }
+
+Set. Conver any type of value to string.
+
+    txt.setValue(value);
+    // txt.value = value;
+
+Size
+
+    Resize canvas size
+
+txt.setCanvasSize(width, height)
+
+Reisze text wrapping size and canvas size.
+
+txt.setSize(width, height);
+
+or
+
+txt.setFixedSize(width, height);
+
+Resize to minimun size to show all visible characters.
+
+    txt.setToMinSize();
+
+Events
+
+    On text change
+
+txt.on('textchange', function(text, txt){
+})
+
+On character child adding
+
+txt.on('addchar', function(child, index, canvasInput) {
+    child.modifyStyle({...})
+})
+
+    child : character child
+
+On cursor moving out of a character child
+
+txt.on('cursorout', function(child, index, canvasInput) {
+    child.modifyStyle({...})
+})
+
+    child : character child
+
+On cursor moving on a character child
+
+txt.on('cursorin', function(child, index, canvasInput) {
+    child.modifyStyle({...})
+})
+
+    child : character child
+
+On open text-editor
+
+txt.on('open', function() {
+
+})
+
+On close text-editor
+
+txt.on('close', function() {
+
+})
+
+Not a number input
+
+    txt.on('nan', function(text){
+
+    })
+
+Select text
+
+This feature does not support.
+Bypass key input
+
+Registered keyboard events might capture key input.
+
+var keyObj = scene.input.keyboard.addKey('W', enableCapture, emitOnRepeat);
+
+Set enableCapture to false to bypass key input to this input-text game objecct.
+Other properties
+
+See DynamicText.

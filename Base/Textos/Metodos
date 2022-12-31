@@ -1,0 +1,46 @@
+Básico de cada jogo
+
+    Config - objeto com as configurações do jogo
+
+    var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    var game = new Phaser.Game(config);
+
+    init - alguns parâmetros para o jogo
+    function init()
+    {
+    }
+
+    preload - carga antecipada dos assets
+
+    function preload ()
+    {
+    }
+
+    create - após a carga no preload, é feita a criação dos principais objetos do jogo. Executa uma única vez após todos os assets serem carregados. Chamado quando 
+    uma cena é inicializada. Este método é responsável pela configuração dos objetos do jogo da cena.
+
+    function create ()
+    {
+    }
+
+    update - é executado enquanto a cena está em execução. Executa a cada frame
+
+    function update ()
+    {
+    }
+
+
+No método preload() usa-se this.load.image()
+No create() usa-se this.add.sprite()
+
+

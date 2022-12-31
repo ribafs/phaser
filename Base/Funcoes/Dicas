@@ -1,0 +1,110 @@
+Lista de classes do Phaser 3
+
+https://photonstorm.github.io/phaser3-docs/classes.list.html
+
+class Level2 extends GameScene {  
+...
+
+newFunction(){
+     //things I want for this extended scene
+}
+
+}
+
+Then in gameScene:
+
+if (this.newFunction) {this.newFunction();}
+
+
+/* MainScene */
+export default class MainScene extends Phaser.Scene {
+  constructor() {
+    super({ key: 'MainScene' })
+  }
+
+  create() {
+    let dude = new Dude(this, 250, 50)
+  }
+}
+
+/* Dude Class */
+class Dude extends Phaser.Physics.Arcade.Sprite {
+  healthBar
+
+  constructor(scene, x = 0, y = 0, texture = 'dude') {
+    super(scene, x, y, texture)
+
+    scene.add.existing(this)
+    scene.physics.add.existing(this)
+
+    scene.events.on('update', this.update, this)
+
+    this.healthBar = new HealthBar(scene)
+  }
+
+  update() {
+    this.healthBar.follow(this)
+  }
+}
+
+/* HealthBar Class */
+class HealthBar extends Phaser.GameObjects.Sprite {
+  constructor(scene, x = 0, y = 0, texture = 'healthBar') {
+    super(scene, x, y, texture)
+
+    scene.add.existing(this)
+  }
+
+  follow(dude) {
+    this.setX(dude.x)
+    this.setY(dude.y - 50)
+  }
+}
+
+Extendendo
+
+class MySprite extends Phaser.GameObjects.Sprite {
+
+    constructor (scene, x, y,myExtra)
+    {
+        super(scene, x, y);
+        this.myExtra = myExtra;
+        this.setTexture('cachedtexturekey');
+        this.setPosition(x, y);
+    }
+    preload()
+    {
+
+    }
+    create()
+    {
+
+    }
+    preUpdate (time, delta)
+    {
+      // do stuff with this.myExtra
+    }
+
+}
+
+const DRAGON = new Dragon(this, 370, 218);
+
+const COLOR_PRIMARY = 0x7986cb;
+const COLOR_LIGHT = 0xaab6fe;
+const COLOR_DARK = 0x49599a;
+
+            this.load.baseURL = 'http://files.phaser.io.s3.amazonaws.com/codingtips/issue001/';
+
+Grupo
+        create: function () {
+
+            this.add.sprite(0, 0, 'background');
+
+            this.platforms = this.add.physicsGroup();
+
+            this.platforms.create(0, 64, 'ice-platform');
+            this.platforms.create(200, 180, 'platform');
+            this.platforms.create(400, 296, 'ice-platform');
+            this.platforms.create(600, 412, 'platform');
+
+

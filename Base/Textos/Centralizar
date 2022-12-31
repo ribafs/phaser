@@ -1,0 +1,29 @@
+game.scale.pageAlignHorizontally = true;
+game.scale.pageAlignVertically = true;
+game.scale.refresh();
+
+
+var game = new Phaser.Game(640, 480, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+
+        function preload() {
+
+            game.load.crossOrigin = "Anonymous";
+            game.load.image('logo', 'https://cdn.rawgit.com/photonstorm/phaser-examples/master/examples/assets/sprites/phaser2.png');
+
+        }
+
+        function create() {
+            game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+            game.scale.pageAlignHorizontally = true;
+            game.scale.pageAlignVertically = true;
+            var logo = game.add.sprite(0, 0, 'logo');
+
+        }
+
+	   * {
+		  margin: 0;
+		  padding: 0;
+		}
+
+<meta name="viewport" content="initial-scale=1 user-scalable=no" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.11.0/phaser.js"></script>

@@ -1,0 +1,33 @@
+
+
+The short Answer:
+
+    if you need a Rectangle for bounderies or other calculations or so use: new Phaser.Geom.Rectangle(...)
+    if you need a simple rectangle GameObject use: this.add.rectangle(...)
+        if you don't want to add it into the scene right away use: new Phaser.GameObjects.Rectangle(...)
+    if you need special rectangle GameObject with more bells and whistles use: this.add.graphics(...)
+
+The long Answer:
+
+It depends on the tasks at hand. Since each Object creates more or less a differnet Object with different properties/methods.
+
+    Type Phaser.GameObjects.Graphics:
+    Is a GameObject but very "lowlevel", you can paint almost anything on it. like rectanlges, circles, ... but it's more work.
+    Details can be found here https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Graphics.html
+
+    Here an example of a special rectangle: https://phaser.io/examples/v3/view/game-objects/graphics/fill-rounded-rectangle
+
+    Type Phaser.GameObjects.Rectangle:
+    Is a GameObject as the Phaser.GameObjects.Graphics, but is specialized for creating rectangles.
+    this.add.rectangle(...) and new Phaser.GameObjects.Rectangle(...) create both a rectangle of this type. this.add.rectangle is only a more convenient way to achive this, and adds it straight to the current scene.
+    Details can be found here https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Rectangle.html)
+
+    Here an example of basic rectangles: https://phaser.io/examples/v3/view/game-objects/shapes/rectangle
+
+    Type Phaser.Geom.Rectangle:
+    Is a geometric Shape, good for bounderies and/or other calculations (but you can also draw with it).
+    Details can be found here https://photonstorm.github.io/phaser3-docs/Phaser.Geom.Rectangle.html
+
+    Here an example of how it is used to check if an GameObject is in a specific rectangle: https://phaser.io/examples/v3/view/geom/rectangle/contains-rect
+
+

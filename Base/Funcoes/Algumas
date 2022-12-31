@@ -1,0 +1,13 @@
+    /**
+     * Small helper function, this allows us to get a value from min to max inclusive.
+     * @param min The lower bound
+     * @param max The upper bound
+     * @returns {*} A random value from min to max including max
+     */
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+

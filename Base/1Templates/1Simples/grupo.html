@@ -1,0 +1,70 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+// Grupo de plataformas com física
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+		physics: {
+			default: 'arcade',
+			arcade: {
+				gravity: {y: 1000},
+				debug: false
+			}
+		},
+        scene: {
+            preload: preload,
+            create: create
+        },
+        width: 800,
+        height: 568,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Funções básicas do jogo
+
+    // Carregar os assets para a memória
+    function preload ()
+    {
+		this.load.image('plataforma', 'assets/images/platform.png')
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+        // Criar o grupo estático
+		this.platforma = this.physics.add.staticGroup()
+
+        // Adicionar plataformas ao grupo
+		this.platforma.create(200,200,'plataforma')
+		this.platforma.create(300,200,'plataforma')
+		this.platforma.create(490,475,'plataforma')
+		this.platforma.create(600,400,'plataforma')
+		.refreshBody() // Quando usamos algum objeto com a física estática, após qualquer mudança precisamos atualizar com refreshBody, caso contrário as mudanças não aparecem
+    }
+</script>
+
+</body>
+</html>

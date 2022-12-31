@@ -1,0 +1,72 @@
+<!doctype html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Template básico de um game com Phaser 3</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // Objeto config
+    let config = {
+        type: Phaser.AUTO,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        },
+        width: 800,
+        height: 550,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+    };
+
+    // Instância do Game configurado
+    let game = new Phaser.Game(config);
+
+    // Funções básicas do jogo
+
+    // Carregar os assets para a memória
+    function preload ()
+    {
+        this.load.audio('musica', 'assets/audio/music0.ogg');
+    }
+
+    // Criar os objetos após a carga dos assets. Executa uma única vez
+    function create ()
+    {
+        this.keySpace = this.input.keyboard.addKey('SPACE');  
+        this.musica =  this.sound.add('musica', {
+            volume: 0.8,
+            loop: true
+        })
+    }
+
+    // Atualizar os objetos a cada frame
+    function update ()
+    {
+
+        this.isDown = this.keySpace.isDown;
+        if(this.isDown) {
+            this.musica.play();
+        }
+
+    	//this.coin.play() // O som deve iniciar somente em algumas circunstâncias, em uma função de colisão ou dentro de uma rotina com um if
+    }
+
+</script>
+
+</body>
+</html>

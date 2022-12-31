@@ -1,0 +1,7 @@
+Para visualizar a área de colisão de cada objeto na cena como um quadrado vermelho
+
+Adicionamos ao objeto config
+
+debug: true
+
+

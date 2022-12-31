@@ -1,0 +1,49 @@
+ Phaser: The game loop
+
+Published in 2021
+
+In Phaser in addition to the preload() and create() scenes, we also have a third scene, called update().
+
+Here is where everything happens.
+
+preload() and create() are run just once.
+
+update() is going to be called forever. It’s a never ending loop, that is repeatedly called until our game ends.
+
+In this example, we create a text that slowly moves to the bottom right of the canvas:
+
+let text
+
+function create() {
+  text = this.add.text(100, 100, 'test')
+}
+
+function update() {
+  text.x += 1
+  text.y += 1
+}
+
+const game = new Phaser.Game({
+  width: 400,
+  height: 400,
+  scene: {
+    create,
+    update
+  }
+})
+
+Note how I added let text at the top, so we can reference it inside both create() and update().
+
+In update() I modified the x and y properties. You can modify other properties, for example you can modify angle to rotate an object:
+
+function update() {
+  text.angle += 2
+}
+
+You can make an object start with a specific velocity.
+
+Call setVelocity() and pass a number for the X axis, and another optional for the Y axis:
+
+text.setVelocity(20, 20)
+
+Or use setVelocityX() and setVelocityY() to only set one of the 2 axis.

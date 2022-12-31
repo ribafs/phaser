@@ -1,0 +1,15 @@
+Funções a serem chamadas na função preload()
+
+function imagePreload(alias, imagePath){
+	this.load.image(alias, imagePath)
+}
+
+function spritePreload(alias, spritePath, w, h){ // Ex: 'player', 'assets/sprites/player.png', {frameWidth: 32, frameHeight: 32}
+	this.load.spritesheet(alias, spritePath, {frameWidth: w, frameHeight: h})
+}
+
+function audioPreload(alias, audioPath){ // Ex: 'audio', 'assets/audio/exemplo.mp3'
+    this.load.audio(alias,[audioPath])
+}
+
+

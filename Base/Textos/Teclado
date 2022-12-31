@@ -1,0 +1,312 @@
+Opções de trabalho com o teclado no Phaser
+
+			this.input.keyboard.addKey('enter')
+				.on('down',()=>{
+					this.scene.start('Scene01')
+				})
+
+
+this.input.keyboard.addKey(someKey), which returns a reference to a key that you can poll.
+
+this.input.keyboard.on('keydown', function (event) { handleKey()}), which allows you to get a callback when a key is pressed.
+
+left: Phaser.Input.Keyboard.Key;
+right: Phaser.Input.Keyboard.Key;
+up: Phaser.Input.Keyboard.Key;
+
+create(): void {
+    this.left = 
+        this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+    this.right = 
+        this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+    this.up = 
+        this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+}
+
+update(now: number, delta: number): void {
+    if (Phaser.Input.Keyboard.JustDown(this.left)) {
+        // do left code
+    }
+    if (Phaser.Input.Keyboard.JustDown(this.right)) {
+        // do right code
+    }
+    if (Phaser.Input.Keyboard.JustDown(this.up)) {
+        // do up code
+    }
+}
+
+
+inputHandler: FBDInputHandler;
+
+create(): void {
+    this.inputHandler = new FBDInputHandler(this, {
+            'left': [
+                Phaser.Input.Keyboard.KeyCodes.LEFT, 
+                Phaser.Input.Keyboard.KeyCodes.NUMPAD_FOUR,
+            ],
+            'right': [
+                Phaser.Input.Keyboard.KeyCodes.RIGHT, 
+                Phaser.Input.Keyboard.KeyCodes.NUMPAD_SIX,
+            ],
+            'up': [
+                Phaser.Input.Keyboard.KeyCodes.UP,
+                Phaser.Input.Keyboard.KeyCodes.NUMPAD_EIGHT,
+            ],
+        });
+}
+
+update(now: number, delta: number): void {
+    if (this.inputHandler.isJustDown('left')) {
+        // do left code
+    }
+    if (this.inputHandler.isJustDown('right')) {
+        // do right code
+    }
+    if (this.inputHandler.isJustDown('up')) {
+        // do up code
+    }
+}
+
+
+        var rightKey = this.input.keyboard.addKey('RIGHT');
+        rightKey
+            .on('down', function () {
+                if (recorder.isRecording) {
+                    var command = [
+                        'moveRight',  // function name
+                        300, // speed
+                    ]
+                    recorder.addCommand(command);
+                    stepRunner.add(command, spriteA);
+                }
+            })
+            .on('up', function () {
+                if (recorder.isRecording) {
+                    var command = [
+                        'stop',  // function name
+                    ]
+                    recorder.addCommand(command);
+                    stepRunner.add(command, spriteA);
+                }
+            });
+
+
+        var leftKey = this.input.keyboard.addKey('LEFT');
+        leftKey
+            .on('down', function () {
+                if (recorder.isRecording) {
+                    var command = [
+                        'moveLeft',  // function name
+                        300, // speed
+                    ]
+                    recorder.addCommand(command);
+                    stepRunner.add(command, spriteA);
+                }
+            })
+            .on('up', function () {
+                if (recorder.isRecording) {
+                    var command = [
+                        'stop',  // function name
+                    ]
+                    recorder.addCommand(command);
+                    stepRunner.add(command, spriteA);
+                }
+            });
+
+        var spaceKey = this.input.keyboard.addKey('SPACE')
+        spaceKey.on('down', function (event) {
+            if (!recorder.isRecording) {
+                // spriteA
+                recorder.start(1);
+                print.setText('Recording');
+                var command = [
+                    'reset'
+                ];
+                recorder.addCommand(command);
+                stepRunner.add(command, spriteA);
+
+                // spriteB
+                player.stop();
+                spriteB.stop();
+            } else {
+                // spriteA
+                if (recorder.isRecording) {
+                    var command = [
+                        'stop',  // function name
+                    ]
+                    recorder.addCommand(command);
+                    stepRunner.add(command, spriteA);
+                }
+                recorder.stop();
+
+                // spriteB
+                var commands = recorder.getCommands();
+                for (var i = 0, cnt = commands.length; i < cnt; i++) {
+                    console.log(commands[i].toString());
+                }
+                player
+                    .load(commands, spriteB)
+                    .start();
+                print.setText('Playing');
+            }
+        });
+
+
+        create: function () {
+
+            this.car = this.add.sprite(48, 48, 'car');
+            this.car.anchor.set(0.5);
+
+            this.physics.arcade.enable(this.car);
+
+            this.cursors = this.input.keyboard.createCursorKeys();
+
+            this.move(Phaser.DOWN);
+
+        },
+
+        checkKeys: function () {
+
+            if (this.cursors.left.isDown && this.current !== Phaser.LEFT)
+            {
+                this.checkDirection(Phaser.LEFT);
+            }
+            else if (this.cursors.right.isDown && this.current !== Phaser.RIGHT)
+            {
+                this.checkDirection(Phaser.RIGHT);
+            }
+            else if (this.cursors.up.isDown && this.current !== Phaser.UP)
+            {
+                this.checkDirection(Phaser.UP);
+            }
+            else if (this.cursors.down.isDown && this.current !== Phaser.DOWN)
+            {
+                this.checkDirection(Phaser.DOWN);
+            }
+            else
+            {
+                //  This forces them to hold the key down to turn the corner
+                this.turning = Phaser.NONE;
+            }
+
+        },
+
+        turn: function () {
+
+            var cx = Math.floor(this.car.x);
+            var cy = Math.floor(this.car.y);
+
+            //  This needs a threshold, because at high speeds you can't turn because the coordinates skip past
+            if (!this.math.fuzzyEqual(cx, this.turnPoint.x, this.threshold) || !this.math.fuzzyEqual(cy, this.turnPoint.y, this.threshold))
+            {
+                return false;
+            }
+
+            this.car.x = this.turnPoint.x;
+            this.car.y = this.turnPoint.y;
+
+            this.car.body.reset(this.turnPoint.x, this.turnPoint.y);
+
+            this.move(this.turning);
+
+            this.turning = Phaser.NONE;
+
+            return true;
+
+        },
+
+        move: function (direction) {
+
+            var speed = this.speed;
+
+            if (direction === Phaser.LEFT || direction === Phaser.UP)
+            {
+                speed = -speed;
+            }
+
+            if (direction === Phaser.LEFT || direction === Phaser.RIGHT)
+            {
+                this.car.body.velocity.x = speed;
+            }
+            else
+            {
+                this.car.body.velocity.y = speed;
+            }
+
+            this.add.tween(this.car).to( { angle: this.getAngle(direction) }, this.turnSpeed, "Linear", true);
+
+            this.current = direction;
+
+        },
+
+        getAngle: function (to) {
+
+            //  About-face?
+            if (this.current === this.opposites[to])
+            {
+                return "180";
+            }
+
+            if ((this.current === Phaser.UP && to === Phaser.LEFT) ||
+                (this.current === Phaser.DOWN && to === Phaser.RIGHT) ||
+                (this.current === Phaser.LEFT && to === Phaser.DOWN) ||
+                (this.current === Phaser.RIGHT && to === Phaser.UP))
+            {
+                return "-90";
+            }
+
+            return "90";
+
+        },
+
+        update: function () {
+          
+            this.physics.arcade.collide(this.car, this.layer);
+
+            this.marker.x = this.math.snapToFloor(Math.floor(this.car.x), this.gridsize) / this.gridsize;
+            this.marker.y = this.math.snapToFloor(Math.floor(this.car.y), this.gridsize) / this.gridsize;
+
+            //  Update our grid sensors
+            this.directions[1] = this.map.getTileLeft(this.layer.index, this.marker.x, this.marker.y);
+            this.directions[2] = this.map.getTileRight(this.layer.index, this.marker.x, this.marker.y);
+            this.directions[3] = this.map.getTileAbove(this.layer.index, this.marker.x, this.marker.y);
+            this.directions[4] = this.map.getTileBelow(this.layer.index, this.marker.x, this.marker.y);
+
+            this.checkKeys();
+
+            if (this.turning !== Phaser.NONE)
+            {
+                this.turn();
+            }
+
+        },
+
+        render: function () {
+
+            //  Un-comment this to see the debug drawing
+
+            for (var t = 1; t < 5; t++)
+            {
+                if (this.directions[t] === null)
+                {
+                    continue;
+                }
+
+                var color = 'rgba(0,255,0,0.3)';
+
+                if (this.directions[t].index !== this.safetile)
+                {
+                    color = 'rgba(255,0,0,0.3)';
+                }
+
+                if (t === this.current)
+                {
+                    color = 'rgba(255,255,255,0.3)';
+                }
+
+                this.game.debug.geom(new Phaser.Rectangle(this.directions[t].worldX, this.directions[t].worldY, 32, 32), color, true);
+            }
+
+            this.game.debug.geom(this.turnPoint, '#ffff00');
+
+        }
