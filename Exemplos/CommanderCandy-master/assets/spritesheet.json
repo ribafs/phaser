@@ -1,0 +1,1395 @@
+{
+	"textures": [
+		{
+			"image": "spritesheet.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 343,
+				"h": 343
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "candy/killed/pixil-frame-7",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 6,
+						"h": 6
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 13,
+						"w": 6,
+						"h": 6
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 6,
+						"h": 6
+					},
+					"anchor": {
+						"x": -2.1666666666666665,
+						"y": -2.1666666666666665
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-8",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 8,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 12,
+						"w": 8,
+						"h": 8
+					},
+					"frame": {
+						"x": 9,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"anchor": {
+						"x": -1.5,
+						"y": -1.5
+					}
+				},
+				{
+					"filename": "misc/bullet",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 8,
+						"h": 8
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 8,
+						"h": 8
+					},
+					"frame": {
+						"x": 19,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-9",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 10,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 11,
+						"w": 10,
+						"h": 10
+					},
+					"frame": {
+						"x": 29,
+						"y": 1,
+						"w": 10,
+						"h": 10
+					},
+					"anchor": {
+						"x": -1.1,
+						"y": -1.1
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-11",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 12,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 10,
+						"w": 12,
+						"h": 12
+					},
+					"frame": {
+						"x": 41,
+						"y": 1,
+						"w": 12,
+						"h": 12
+					},
+					"anchor": {
+						"x": -0.8333333333333334,
+						"y": -0.8333333333333334
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-10",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 12,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 10,
+						"w": 12,
+						"h": 12
+					},
+					"frame": {
+						"x": 55,
+						"y": 1,
+						"w": 12,
+						"h": 12
+					},
+					"anchor": {
+						"x": -0.8333333333333334,
+						"y": -0.8333333333333334
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-12",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 8,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 69,
+						"y": 1,
+						"w": 16,
+						"h": 16
+					},
+					"anchor": {
+						"x": -0.5,
+						"y": -0.5
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-13",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 20
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 20,
+						"h": 20
+					},
+					"frame": {
+						"x": 87,
+						"y": 1,
+						"w": 20,
+						"h": 20
+					},
+					"anchor": {
+						"x": -0.3,
+						"y": -0.3
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-6",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 20
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 20,
+						"h": 20
+					},
+					"frame": {
+						"x": 109,
+						"y": 1,
+						"w": 20,
+						"h": 20
+					},
+					"anchor": {
+						"x": -0.3,
+						"y": -0.3
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-14",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 26
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 3,
+						"w": 26,
+						"h": 26
+					},
+					"frame": {
+						"x": 131,
+						"y": 1,
+						"w": 26,
+						"h": 26
+					},
+					"anchor": {
+						"x": -0.11538461538461539,
+						"y": -0.11538461538461539
+					}
+				},
+				{
+					"filename": "candy/idle/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 21
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 32,
+						"h": 21
+					},
+					"frame": {
+						"x": 159,
+						"y": 1,
+						"w": 32,
+						"h": 21
+					},
+					"anchor": {
+						"x": 0.03125,
+						"y": 0.047619047619047616
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 21
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 32,
+						"h": 21
+					},
+					"frame": {
+						"x": 193,
+						"y": 1,
+						"w": 32,
+						"h": 21
+					},
+					"anchor": {
+						"x": 0,
+						"y": -0.23809523809523808
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 28,
+						"h": 26
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 28,
+						"h": 26
+					},
+					"frame": {
+						"x": 227,
+						"y": 1,
+						"w": 28,
+						"h": 26
+					},
+					"anchor": {
+						"x": -0.07142857142857142,
+						"y": 0
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 22
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 32,
+						"h": 22
+					},
+					"frame": {
+						"x": 257,
+						"y": 1,
+						"w": 32,
+						"h": 22
+					},
+					"anchor": {
+						"x": 0,
+						"y": -0.18181818181818182
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 29,
+						"h": 26
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 29,
+						"h": 26
+					},
+					"frame": {
+						"x": 291,
+						"y": 1,
+						"w": 29,
+						"h": 26
+					},
+					"anchor": {
+						"x": -0.06896551724137931,
+						"y": 0
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 25
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 32,
+						"h": 25
+					},
+					"frame": {
+						"x": 1,
+						"y": 29,
+						"w": 32,
+						"h": 25
+					},
+					"anchor": {
+						"x": 0,
+						"y": -0.04
+					}
+				},
+				{
+					"filename": "candy/killed/pixil-frame-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 26
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 26
+					},
+					"frame": {
+						"x": 35,
+						"y": 29,
+						"w": 32,
+						"h": 26
+					},
+					"anchor": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 69,
+						"y": 29,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 111,
+						"y": 29,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-6",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 153,
+						"y": 29,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 195,
+						"y": 29,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 237,
+						"y": 29,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-7",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 279,
+						"y": 29,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/idle/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 1,
+						"y": 71,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/idle/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 43,
+						"y": 71,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 85,
+						"y": 71,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/killed/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 127,
+						"y": 71,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/idle/pixil-frame-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 169,
+						"y": 71,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "enemy/idle/pixil-frame-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 40,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 211,
+						"y": 71,
+						"w": 40,
+						"h": 40
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 57,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 28,
+						"w": 57,
+						"h": 32
+					},
+					"frame": {
+						"x": 253,
+						"y": 71,
+						"w": 57,
+						"h": 32
+					},
+					"anchor": {
+						"x": 0.5087719298245614,
+						"y": 0.0625
+					}
+				},
+				{
+					"filename": "platform/platformRed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 30
+					},
+					"frame": {
+						"x": 1,
+						"y": 113,
+						"w": 60,
+						"h": 30
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "platform/platformSilver",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 30
+					},
+					"frame": {
+						"x": 63,
+						"y": 113,
+						"w": 60,
+						"h": 30
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "platform/platformOrange",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 30
+					},
+					"frame": {
+						"x": 125,
+						"y": 113,
+						"w": 60,
+						"h": 30
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "platform/platformBlue",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 30
+					},
+					"frame": {
+						"x": 187,
+						"y": 113,
+						"w": 60,
+						"h": 30
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "platform/platformGreen",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 30
+					},
+					"frame": {
+						"x": 249,
+						"y": 113,
+						"w": 60,
+						"h": 30
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 57,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 24,
+						"w": 57,
+						"h": 36
+					},
+					"frame": {
+						"x": 1,
+						"y": 145,
+						"w": 57,
+						"h": 36
+					},
+					"anchor": {
+						"x": 0.5087719298245614,
+						"y": 0.16666666666666666
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 57,
+						"h": 39
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 21,
+						"w": 57,
+						"h": 39
+					},
+					"frame": {
+						"x": 60,
+						"y": 145,
+						"w": 57,
+						"h": 39
+					},
+					"anchor": {
+						"x": 0.5087719298245614,
+						"y": 0.23076923076923078
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 57,
+						"h": 39
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 21,
+						"w": 57,
+						"h": 39
+					},
+					"frame": {
+						"x": 119,
+						"y": 145,
+						"w": 57,
+						"h": 39
+					},
+					"anchor": {
+						"x": 0.5087719298245614,
+						"y": 0.23076923076923078
+					}
+				},
+				{
+					"filename": "player/walk-right/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 5,
+						"w": 41,
+						"h": 55
+					},
+					"frame": {
+						"x": 178,
+						"y": 145,
+						"w": 41,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.5365853658536586,
+						"y": 0.45454545454545453
+					}
+				},
+				{
+					"filename": "player/walk-left/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 41,
+						"h": 55
+					},
+					"frame": {
+						"x": 221,
+						"y": 145,
+						"w": 41,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.4634146341463415,
+						"y": 0.45454545454545453
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 41,
+						"h": 55
+					},
+					"frame": {
+						"x": 264,
+						"y": 145,
+						"w": 41,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.4634146341463415,
+						"y": 0.45454545454545453
+					}
+				},
+				{
+					"filename": "player/idle/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 5,
+						"w": 41,
+						"h": 55
+					},
+					"frame": {
+						"x": 1,
+						"y": 202,
+						"w": 41,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.4634146341463415,
+						"y": 0.509090909090909
+					}
+				},
+				{
+					"filename": "player/walk-left/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 56
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 4,
+						"w": 41,
+						"h": 56
+					},
+					"frame": {
+						"x": 44,
+						"y": 202,
+						"w": 41,
+						"h": 56
+					},
+					"anchor": {
+						"x": 0.4634146341463415,
+						"y": 0.4642857142857143
+					}
+				},
+				{
+					"filename": "player/idle/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 5,
+						"w": 42,
+						"h": 55
+					},
+					"frame": {
+						"x": 87,
+						"y": 202,
+						"w": 42,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.47619047619047616,
+						"y": 0.509090909090909
+					}
+				},
+				{
+					"filename": "player/walk-right/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 56
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 41,
+						"h": 56
+					},
+					"frame": {
+						"x": 131,
+						"y": 202,
+						"w": 41,
+						"h": 56
+					},
+					"anchor": {
+						"x": 0.5365853658536586,
+						"y": 0.4642857142857143
+					}
+				},
+				{
+					"filename": "player/walk-right/pixil-frame-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 3,
+						"w": 41,
+						"h": 57
+					},
+					"frame": {
+						"x": 174,
+						"y": 202,
+						"w": 41,
+						"h": 57
+					},
+					"anchor": {
+						"x": 0.5365853658536586,
+						"y": 0.47368421052631576
+					}
+				},
+				{
+					"filename": "player/walk-left/pixil-frame-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 3,
+						"w": 41,
+						"h": 57
+					},
+					"frame": {
+						"x": 217,
+						"y": 202,
+						"w": 41,
+						"h": 57
+					},
+					"anchor": {
+						"x": 0.4634146341463415,
+						"y": 0.47368421052631576
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-6",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 57,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 18,
+						"w": 57,
+						"h": 42
+					},
+					"frame": {
+						"x": 260,
+						"y": 202,
+						"w": 57,
+						"h": 42
+					},
+					"anchor": {
+						"x": 0.5087719298245614,
+						"y": 0.2857142857142857
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-7",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 57,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 15,
+						"w": 57,
+						"h": 45
+					},
+					"frame": {
+						"x": 1,
+						"y": 261,
+						"w": 57,
+						"h": 45
+					},
+					"anchor": {
+						"x": 0.5087719298245614,
+						"y": 0.3333333333333333
+					}
+				},
+				{
+					"filename": "player/jump/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 49,
+						"h": 56
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 4,
+						"w": 49,
+						"h": 56
+					},
+					"frame": {
+						"x": 60,
+						"y": 261,
+						"w": 49,
+						"h": 56
+					},
+					"anchor": {
+						"x": 0.46938775510204084,
+						"y": 0.4642857142857143
+					}
+				},
+				{
+					"filename": "player/hurt/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 49,
+						"h": 56
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 4,
+						"w": 49,
+						"h": 56
+					},
+					"frame": {
+						"x": 111,
+						"y": 261,
+						"w": 49,
+						"h": 56
+					},
+					"anchor": {
+						"x": 0.46938775510204084,
+						"y": 0.4642857142857143
+					}
+				},
+				{
+					"filename": "player/shoot-right/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 50,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 5,
+						"w": 50,
+						"h": 55
+					},
+					"frame": {
+						"x": 162,
+						"y": 261,
+						"w": 50,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.42,
+						"y": 0.45454545454545453
+					}
+				},
+				{
+					"filename": "player/shoot-left/pixil-frame-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 51,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 5,
+						"w": 51,
+						"h": 55
+					},
+					"frame": {
+						"x": 214,
+						"y": 261,
+						"w": 51,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.5686274509803921,
+						"y": 0.45454545454545453
+					}
+				},
+				{
+					"filename": "player/killed/pixil-frame-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 52,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 52,
+						"h": 55
+					},
+					"frame": {
+						"x": 267,
+						"y": 261,
+						"w": 52,
+						"h": 55
+					},
+					"anchor": {
+						"x": 0.5192307692307693,
+						"y": 0.45454545454545453
+					}
+				},
+				{
+					"filename": "misc/healthBorder",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 23
+					},
+					"frame": {
+						"x": 1,
+						"y": 319,
+						"w": 104,
+						"h": 23
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:42283921e14c371ab69b2b7b47078278:1051aef9f9d6ead90e4822a6f7bb1fcd:729adc6043343cfda41c447ce8f464d6$"
+	}
+}

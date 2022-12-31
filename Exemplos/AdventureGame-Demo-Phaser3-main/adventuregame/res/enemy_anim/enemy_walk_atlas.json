@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "enemy_walk1",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk8",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 33,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk2",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 0,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk3",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 33,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk4",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 66,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk5",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 66,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk6",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 99,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "enemy_walk7",
+            "frame": {
+                "w": 33,
+                "h": 60,
+                "x": 99,
+                "y": 60
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

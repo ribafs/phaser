@@ -1,0 +1,1 @@
+template 76px*72px(19*18 squares elk 4px*4px)

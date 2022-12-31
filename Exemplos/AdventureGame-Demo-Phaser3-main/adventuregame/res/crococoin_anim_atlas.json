@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "crococoin1",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin2",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 21,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin3",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 0,
+                "y": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin4",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 21,
+                "y": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin5",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 42,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin6",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 42,
+                "y": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin7",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 63,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "crococoin8",
+            "frame": {
+                "w": 21,
+                "h": 32,
+                "x": 63,
+                "y": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+  Project: Space Invaders built with Phaser 3
+  Author: Trung Vo (trungk18@gmail.com)
+  Homepage: https://github.com/trungk18/space-invaders-phaser-3
+  -----
+  Last Modified: Monday, 10th August 2020 10:51:21 am
+  Modified By: Trung Vo (trungk18@gmail.com>)
+  -----
+  Copyright 2020 Trung Vo
+  -->
+
+  <meta charset="utf-8">
+  <title>Space Invaders Phaser 3 - by trung18</title>
+  <!-- Primary Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Space Invaders built with Phaser 3 - by trungk18">
+  <meta name="description" content="Based on Phaser 2 Invaders tutorial but written on Phaser 3 and TypeScript">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tetris.trungk18.com/">
+  <meta property="og:title" content="Space Invaders built with Phaser 3 - by trungk18">
+  <meta property="og:description" content="Based on Phaser 2 Invaders tutorial but written on Phaser 3 and TypeScript">
+  <meta property="og:image" content="assets/readme/invaders-cover.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tetris.trungk18.com/">
+  <meta property="twitter:title" content="Space Invaders built with Phaser 3 - by trungk18">
+  <meta property="twitter:description" content="Based on Phaser 2 Invaders tutorial but written on Phaser 3 and TypeScript">
+  <meta property="twitter:image" content="assets/readme/invaders-cover.png">
+
+  <link rel="image_src" href="assets/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+
+  <link rel="stylesheet"
+        href="/assets/css/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="SpaceInvaders">      
+      <div class="pacman">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    
+    <div class="social-wrapper">
+      <div class="social-button"
+           title="This is one of my favorite project!">
+        <a class="social-btn"
+           href="https://jira.trungk18.com/"
+           rel="noopener noreferrer"
+           target="_blank">
+          🔨 Angular Jira Clone
+        </a>
+      </div>
+
+      <div class="social-button"
+           title="Free tetris game!">
+        <a class="social-btn"
+           href="https://tetris.trungk18.com/"
+           rel="noopener noreferrer"
+           target="_blank">
+          🎮 Angular Tetris
+        </a>
+      </div>
+
+      <div class="social-button"
+           title="Thanks for your support!">
+        <a class="social-btn"
+           href="https://www.buymeacoffee.com/tuantrungvo"
+           rel="noopener noreferrer"
+           target="_blank">
+          🍺 Buy me a beer
+        </a>
+      </div>
+
+      <div class="social-button">
+        <iframe src="https://ghbtns.com/github-btn.html?user=trungk18&repo=space-invaders-phaser-3&type=star&count=true&size=large"
+                frameborder="0"
+                scrolling="0"
+                width="170"
+                height="30"
+                title="GitHub">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80363801-8"></script>
+  <script>
+    if (window.location.hostname === "invaders.trungk18.com") {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-80363801-8');
+    }
+  </script>
+</body>
+
+</html>

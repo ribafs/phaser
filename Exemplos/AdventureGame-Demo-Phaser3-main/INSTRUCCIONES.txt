@@ -1,0 +1,75 @@
+TRABAJO REALIZADO POR JAVIER LÓPEZ SÁNCHEZ E IVÁN ALONSO RODRÍGUEZ
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+
+VIDEO DEMOSTRATIVO: https://youtu.be/w7knJLT9EFE
+
+
+REQUISITOS
+----------------------------------------------------------------------------------------------------
+METER LA CARPETA ADVENTUREGAME EN HTDOCS
+ACTIVAR APACHE EN XAMPP
+(FUNCIONAMIENTO COMPROBADO EN CHROME)
+
+
+ADVENTURE GAME
+----------------------------------------------------------------------------------------------------
+¡Ayuda a Francis el cyborg a recuperar todas las crocomonedas de la isla Adventure y a derrotar a todos los peligrosos crocopintores para que pueda volver a su casa!
+
+
+CONTROLES
+----------------------------------------------------------------------------------------------------
+Flechas de direccion = Movimiento del personaje.
+Barra espaciadora = Salto.
+Tecla F (Fire) = Disparo.
+
+
+CAMBIOS ESTÉTICOS (PRÁCTICAMENTE TODOS LOS ASPECTOS ARTÍSTICOS - SPRITES Y MÚSICA SON COMPLETAMENTE ORIGINALES)
+----------------------------------------------------------------------------------------------------
+Se han diseñado todos los sprite del menú, el jugador, el enemigo, la meta, las trampas, las monedas, la interfaz, el fondo... y sus respectivas animaciones desde 0 con Aseprite.
+El resto de sprites del mapa se han modificado usando Aseprite para adecuar la estética a los de propia creación.
+Se ha creado toda la música desde 0 con Musecore.
+Se ha grabado toda la voz desde 0 con Audacity.
+Se han creado todos los efectos de sonido con BFXR.
+
+
+FUNCIONALIDAD AÑADIDA (PROTOTIPO COMPLETAMENTE FUNCIONAL DE MENÚ Y UN NIVEL)
+----------------------------------------------------------------------------------------------------
+
+Se ha creado un menú principal.
+
+Se ha creado un sistema de fundido a/desde negro para las escenas.
+
+Se ha rediseñado por completo con tiled el único nivel existente.
+
+Se ha añadido música, además de múltiples efectos de sonido.
+
+Se ha añadido la funcionalidad de disparar para el jugador.
+
+Se han creado una serie de trampas estáticas que dañan al jugador.
+
+Se ha creado de un enemigo en movimiento.
+
+Se ha definido la interacción del enemigo con el jugador (eliminarle, perder una vida, ...)
+
+Se han incorporado monedas para recolectar puntos.
+
+Se ha creado un sistema de vidas.
+
+Se ha creado un tiempo de inmunidad cuando pierdes una vida.
+
+Se ha creado un sistema de seguimiento de la interfaz (vida y puntuación) hacia la cámara.
+
+Se ha definido el mar como un punto de reinicio de nivel (aparte de perder todas las vidas).
+
+Se ha creado una línea de meta con una serie de requisitos a cumplir antes de poder volver al menú.
+
+Se detecta la dirección del personaje con un flag: "is_right_not_left" para animaciones más precisas
+y profesionales, así como para controlar la dirección de los disparos entre otras cosas.
+
+
+OTROS CAMBIOS
+----------------------------------------------------------------------------------------------------
+
+Se ha mejorado la estructuración del código, ordenandolo y comentándolo parte por parte.

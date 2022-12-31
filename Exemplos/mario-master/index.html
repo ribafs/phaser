@@ -1,0 +1,246 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Making your first Phaser 3 Game - Part 10</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0 },
+            debug: false
+        }
+    },
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+
+var player;
+var stars;
+var bombs;
+var hungry;
+var mushrooms;
+var mushroomsleft;
+var eat;
+var eats;
+var platforms;
+var cursors;
+var score = 1;
+var gameOver = false;
+var scoreText;
+var rows;
+var cols;
+var newstar;
+var newcheck;
+var checker;
+var current=0;
+var k=0;
+var overlapTriggered=false;
+var overlapCollider;
+var game = new Phaser.Game(config);
+
+function preload ()
+{
+    this.load.image('sky', 'assets/sky.png');
+    this.load.image('ground', 'assets/platform.png');
+    this.load.image('star', 'assets/mushroom.png');
+    this.load.image('bomb', 'assets/bomb.png');
+    this.load.image('checker','assets/star.png');
+    this.load.image('eaten','assets/black.png');
+    this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+}
+
+function create ()
+{
+    this.add.image(400, 300, 'sky');
+    platforms = this.physics.add.staticGroup();
+    rows=window.prompt("enter the number of rows",1);
+    cols=window.prompt("enter the number of columns",1);
+    
+    mushroomsleft=rows;
+    eats=this.physics.add.group();
+
+    for(var i=0;i<cols;i++){
+        for(var j=0;j<rows;j++){
+            checker=platforms.create(200+(i*65),150+(j*55),'ground').setScale(0.15,1.5).refreshBody();
+            eat=eats.create(200+(i*65),150+(j*55),'eaten').setScale(0.15,1.5);
+            eat.name=k;
+            eat.visible=false;
+            checker.name=k;
+            k+=1;
+        }
+    }
+  
+    player = this.physics.add.sprite(199,150, 'dude');
+    this.anims.create({
+        key: 'left',
+        frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    this.anims.create({
+        key: 'up',
+        frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+    this.anims.create({
+        key: 'down',
+        frames: [ {key:'dude',frame:4}],
+        frameRate: 10,
+        repeat: -1
+    });
+    this.anims.create({
+        key: 'turn',
+        frames: [ { key: 'dude', frame: 4 } ],
+        frameRate: 20
+    });
+
+    this.anims.create({
+        key: 'right',
+        frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    cursors = this.input.keyboard.createCursorKeys();
+
+    mushrooms = this.physics.add.group();
+
+    for (var i=0; i<rows ; i++){
+        newstar=mushrooms.create(200+(Math.floor(Math.random() * (rows)))*65,150+(Math.floor(Math.random() * (cols)))*55,'star').setScale(0.1,0.1);
+        // eat=eats.create(200+(Math.floor(Math.random() * (rows)))*65,150+(Math.floor(Math.random() * (cols)))*55,'eaten').setScale(0.15,1.5);
+        newstar.visible=false;
+        // eat.visible=true;
+    }
+    
+    bombs = this.physics.add.image(200,150,'bomb').setScale(0.2,0.2);
+
+    scoreText = this.add.text(16, 16, 'Distance Travelled: 1', { fontSize: '32px', fill: '#000' });
+    Hungry    = this.add.text(16, 50, 'Mushrooms Left:'+rows, { fontSize: '26px', fill: '#000' });
+
+    
+    overlapCollider=this.physics.add.overlap(bombs, platforms,totaldistance,null,this);
+    this.physics.add.overlap(player, mushrooms, foundMushroom, null, this);
+
+}
+
+function update ()
+{   
+    bombs.x=player.x;
+    bombs.y=player.y;
+    if (gameOver)
+    {
+        return;
+    }
+
+    if (cursors.left.isDown)
+    {
+        player.setVelocityX(-160);
+        player.setVelocityY(0);
+        player.anims.play('left', true);
+    }
+    else if (cursors.right.isDown)
+    {
+        player.setVelocityX(160);
+        player.setVelocityY(0);
+        player.anims.play('right', true);
+    }
+    else if(cursors.up.isDown)
+    {
+        player.setVelocityY(-160);
+        player.setVelocityX(0);
+        player.anims.play('up',true);
+    }
+    else if(cursors.down.isDown)
+    {
+        player.setVelocityY(160);
+        player.setVelocityX(0);
+        player.anims.play('down',true);
+    }
+
+    if(player.x>=((platforms.children.entries[(rows*cols)-rows].x)+10))
+    {
+        player.setVelocityX(-160);
+        player.anims.play('left');
+    }
+    if(player.x<190)
+    {
+        player.setVelocityX(160);
+        player.anims.play('right');
+    }
+    if(player.y>(platforms.children.entries[rows-1].y))
+    {   
+        player.setVelocityY(-160);
+   }
+    if(player.y<130)
+    {   
+        player.setVelocityY(160);        
+    }
+
+
+}
+
+function totaldistance(player,platform){
+    
+    if(current!=platform.name){
+        score+=1;
+        scoreText.setText("Distance Travelled:"+score);
+        current=platform.name;
+    }
+        
+
+}
+
+function foundMushroom (player, mushroom)
+{
+    mushroom.visible=true;
+    mushroom.disableBody(true,false);
+    // console.log("here");
+    //  Add and update the score
+    // for()
+
+    mushroomsleft-=1;
+    Hungry.setText("Mushrooms Left :"+mushroomsleft);
+    console.log(mushroom);
+
+    if (mushrooms.countActive(true) === 0)
+    {
+       
+        this.physics.pause();
+
+        player.setTint(0xff0000);
+
+        player.anims.play('turn');
+
+        gameOver = true;
+        mushroomsleft=0;
+        Hungry.setText("Mario is full!!");
+
+        // window.prompt("You Win!!");
+       
+
+    }
+}
+// https://github.com/Anuroop-ag/mario
+</script>
+
+</body>
+</html>

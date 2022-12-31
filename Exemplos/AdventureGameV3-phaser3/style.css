@@ -1,0 +1,14 @@
+@font-face {
+	font-family: UndertaleFont;
+	src: url(fonts/DeterminationMonoWeb.woff);
+}
+
+body {
+	font-family: UndertaleFont;
+}
+
+canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}

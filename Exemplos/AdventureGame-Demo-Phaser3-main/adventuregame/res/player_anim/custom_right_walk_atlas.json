@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "custom_right_walk_1",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_2",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 36,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_3",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 0,
+                "y": 65
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_4",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 36,
+                "y": 65
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_5",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 72,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_6",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 72,
+                "y": 65
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_7",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 108,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "custom_right_walk_8",
+            "frame": {
+                "w": 36,
+                "h": 65,
+                "x": 108,
+                "y": 65
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
